@@ -1,0 +1,109 @@
+// You must input your instructions here. Anything starting with // won't be taken into account.
+// Different variations of example commands are given separated by an empty line. Feel free to comment and uncomment the commands you like to run.
+
+// createbus 10 0.7
+
+// createbus 52 0.7
+// createbus 8 0.7
+
+// createbus 30 0.08
+// createbus 30 2.7
+
+// createtrain 80 0.4 3
+
+// createtrain 28 0.4 3
+// createtrain 152 0.4 3
+
+// createtrain 80 0.08 3
+// createtrain 80 2.7 3
+
+// createtrain 80 0.4 -1
+// createtrain 80 0.4 17
+
+// createairplane 250 1 true
+
+// createairplane -1 1 true
+// createairplane 802 1 true
+
+// createairplane 250 0.08 true
+// createairplane 250 2.7 true
+
+// createairplane 80 1 true
+// createairplane 80 1 false
+// createairplane 250 1 pesho
+
+// createtrain 80 0.4 3
+// createjourney Sofia Turnovo 3000 0
+
+// createtrain 80 0.4 3
+// createjourney S Turnovo 3000 0
+// createjourney SsdddddddddsdsssssssssSsdddddddddsdsssssssss Turnovo 3000 0
+
+// createtrain 80 0.4 3
+// createjourney Sofia Tsa 3000 0
+// createjourney Sofia SsdddddddddsdsssssssssSsdddddddddsdsssssssss 3000 0
+
+// createtrain 80 0.4 3
+// createjourney Sofia Turnovo 3 0
+// createjourney Sofia Turnovo 5003 0
+
+// createtrain 80 0.4 3
+// createjourney Sofia Turnovo 400 2
+
+// createtrain 80 0.4 3
+// createjourney Sofia Turnovo 400 0
+// createticket 0 100
+
+// createtrain 80 0.4 3
+// createjourney Sofia Turnovo 400 0
+// createticket 1 100
+
+// createtrain 80 0.4 3
+// createjourney Sofia Turnovo 400 0
+// createticket pesho 100
+
+// listvehicles
+
+// createbus 10 0.7
+// createairplane 250 1 true
+// createtrain 80 0.4 3
+// listvehicles
+
+// createbus 10 0.7
+// createairplane 250 1 true
+// createtrain 80 0.4 3
+// listvehicles
+// createjourney Sofia Turnovo 400 1
+// listjourneys
+
+// createbus 10 0.7
+// listvehicles
+// createjourney Sofia vTurnovo 300 0
+// listjourneys
+// createticket 0 30
+// listtickets
+
+// createbus 10 0.7
+// createairplane 230 1 true
+// createtrain 80 0.44 3
+// listvehicles
+// createjourney Sofia Turnovo 300 0
+// createjourney Sofia Turnovo 33 1
+// listjourneys
+// createticket 0 30.2
+// createticket 1 100
+// listtickets
+
+createbus 10 0.7
+createtrain 300 0.4 3
+createairplane 250 1 true
+createairplane 250 2.7 true
+createtrain 80 0.4 3
+listvehicles
+createjourney Sofia vTurnovo 300 0
+createjourney Sofia vTurnovo 3 0
+createjourney vTurnovo Sofia 300 3
+listjourneys
+createticket 0 30
+createticket 1 100
+listtickets

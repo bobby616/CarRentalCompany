@@ -1,6 +1,6 @@
 import { IVehicle } from '../vehicles/contracts/vehicle';
 
-export interface IJourney {
+export interface IRental {
   startLocation: string;
   endLocation: string;
   distance: number;

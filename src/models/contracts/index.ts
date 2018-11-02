@@ -1,2 +1,1 @@
-export * from './journey';
-export * from './ticket';
+export * from './rental';

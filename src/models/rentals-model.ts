@@ -1,8 +1,8 @@
 import { VehicleType } from '.';
-import { IJourney } from './contracts/journey';
+import { IRental } from './contracts/rental';
 import { IVehicle } from './vehicles/contracts/vehicle';
 
-export class Journey implements IJourney {
+export class Rental implements IRental {
   private readonly _startLocation: string;
 
   private readonly _endLocation: string;

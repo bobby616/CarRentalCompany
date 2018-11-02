@@ -1,15 +1,15 @@
-import { IAgencyFactory, ITravelDatabase } from '../../contracts';
+import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
-import { AgencyFactory } from '../../engine/travel-agency-factory';
+import { Models } from '../../engine/models-factory';
 import { TravelDatabase } from '../../travel-database';
-import { IJourney } from './../../../models/contracts/journey';
+import { IJourney } from '../../../models/contracts/rental';
 export class ListJourneys implements ICommand {
 
-  private _factory: IAgencyFactory;
+  private _factory: IModels;
   private _travelDatabase: ITravelDatabase;
 
   constructor() {
-    this._factory = new AgencyFactory();
+    this._factory = new Models();
     this._travelDatabase = TravelDatabase.INSTANCE;
   }
 

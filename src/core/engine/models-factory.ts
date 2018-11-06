@@ -10,17 +10,17 @@ import { Caravan } from '../../models/vehicles/caravan-model';
 
 export class Models implements IModels {
 
-  createCar(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, transmissionType: TransmissionType, topSpeed: number): IVehicle {
-    return new Car(passengerCapacity, pricePerKilometer, engine, color, transmissionType, topSpeed);
+  createCar(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, topSpeed: number): IVehicle {
+    return new Car(passengerCapacity, pricePerKilometer, engine, color, TransmissionType.Manual, topSpeed);
   }
-  createMotorcycle(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, transmissionType: TransmissionType, topSpeed: number): IVehicle {
-    return new Motorcycle(passengerCapacity, pricePerKilometer, engine, color, transmissionType, topSpeed);
+  createMotorcycle(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, topSpeed: number): IVehicle {
+    return new Motorcycle(passengerCapacity, pricePerKilometer, engine, color, TransmissionType.Manual, topSpeed);
   }
-  createCaravan(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, transmissionType: TransmissionType, livingArea: number, numberOfBeds: number, hasBathroom: boolean): IVehicle {
-    return new Caravan(passengerCapacity, pricePerKilometer, engine, color, transmissionType, livingArea, numberOfBeds, hasBathroom);
+  createCaravan(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string,  livingArea: number, numberOfBeds: number, hasBathroom: boolean): IVehicle {
+    return new Caravan(passengerCapacity, pricePerKilometer, engine, color, TransmissionType.Manual, livingArea, numberOfBeds, hasBathroom);
   }
-  public createBus(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, transmissionType: TransmissionType, busLength: number): IVehicle {
-    return new Bus(passengerCapacity, pricePerKilometer, engine, color, transmissionType, busLength);
+  public createBus(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, busLength: number): IVehicle {
+    return new Bus(passengerCapacity, pricePerKilometer, engine, color, TransmissionType.Manual, busLength);
   }
 
 }

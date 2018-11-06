@@ -4,7 +4,7 @@ import {
 import { TransmissionType } from '../../models/vehicles/common/transmission-type';
 
 export interface IModels {
-  createBus(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, transmissionType: TransmissionType, busLength: number): IVehicle;
+  createBus(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, busLength: number): IVehicle;
 
   createCar(passengerCapacity: number, pricePerKilometer: number, engine: string,
     color: string, transmissionType: TransmissionType, topSpeed: number): IVehicle;
@@ -12,8 +12,6 @@ export interface IModels {
   createMotorcycle(passengerCapacity: number, pricePerKilometer: number, engine: string,
     color: string, transmissionType: TransmissionType, topSpeed: number ): IVehicle;
 
-  createCaravan(passengerCapacity: number, pricePerKilometer: number, engine: string,
-    color: string, transmissionType: TransmissionType, livingArea: number, numberOfBeds: number,
-    hasBathroom: boolean): IVehicle;
+  createCaravan(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string,  livingArea: number, numberOfBeds: number, hasBathroom: boolean): IVehicle;
 
 }

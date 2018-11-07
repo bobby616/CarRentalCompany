@@ -1,17 +1,18 @@
 import {
-  IVehicle
+  IVehicle, IRental
 } from '../../models';
-import { TransmissionType } from '../../models/vehicles/common/transmission-type';
 
 export interface IModels {
-  createBus(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, busLength: number): IVehicle;
+  createBus(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, transmissionType: string, busLength: number): IVehicle;
 
   createCar(passengerCapacity: number, pricePerKilometer: number, engine: string,
-    color: string, transmissionType: TransmissionType, topSpeed: number): IVehicle;
+    color: string, transmissionType: string, topSpeed: number): IVehicle;
 
   createMotorcycle(passengerCapacity: number, pricePerKilometer: number, engine: string,
-    color: string, transmissionType: TransmissionType, topSpeed: number ): IVehicle;
+    color: string, transmissionType: string, topSpeed: number): IVehicle;
 
-  createCaravan(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string,  livingArea: number, numberOfBeds: number, hasBathroom: boolean): IVehicle;
+  createCaravan(passengerCapacity: number, pricePerKilometer: number, engine: string, color: string, transmissionType: string, livingArea: number, numberOfBeds: number, hasBathroom: boolean): IVehicle;
 
+  createRental(clientFirstName: string, clientLastName: string, 
+    daysOfRental: number, vehicleId: IVehicle,): IRental;
 }

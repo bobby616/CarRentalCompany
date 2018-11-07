@@ -3,58 +3,60 @@ import { IRental } from './contracts/rental';
 import { IVehicle } from './vehicles/contracts/vehicle';
 
 export class Rental implements IRental {
-  private readonly _startLocation: string;
 
-  private readonly _endLocation: string;
+  private readonly _clientFirstName: string;
 
-  private readonly _distance: number;
+  private readonly _clientLastName: string;
+
+  private readonly _daysOfRental: number;
 
   private readonly _vehicle: IVehicle;
 
-  private readonly _minLocationLength: number = 5;
+  private readonly _minLength = 0;
 
-  private readonly _maxLocationLength: number = 25;
+  private readonly _maxLength = 20;
 
-  private readonly _minDistance: number = 5;
+  private readonly _minDays = 0;
 
-  private readonly _maxDistance: number = 5000;
+
 
   public constructor(
-    startLocation: string,
-    endLocation: string,
-    distance: number,
+    clientFirstName: string,
+    clientLastName: string,
+    daysOfRental: number,
     vehicle: IVehicle
   ) {
-    if (startLocation.length < this._minLocationLength || startLocation.length > this._maxLocationLength) {
+    if (clientFirstName.length < this._minLength || clientFirstName.length > this._maxLength) {
       throw new Error(
-        `The startLocation's length cannot be less than ${this._minLocationLength} or more than ${this._maxLocationLength} symbols long.`
+        `The First Name cannot be less than ${this._minLength} or more than ${this._maxLength} symbols long.`
       );
     }
 
-    if (endLocation.length < this._minLocationLength || endLocation.length > this._maxLocationLength) {
-      throw new Error(`The endLocation's length cannot be less than ${this._minLocationLength} or more than 25 symbols long.`);
+    if (clientLastName.length < this._minLength || clientLastName.length > this._maxLength) {
+      throw new Error(`The Last Name cannot be less than ${this._minLength} or more than 
+      ${this._maxLength} symbols long.`);
     }
 
-    if (distance < this._minDistance || distance > this._maxDistance) {
-      throw new Error(`The distance cannot be less than ${this._minDistance} or more than ${this._maxDistance} kilometers.`);
+    if (daysOfRental <= this._minDays) {
+      throw new Error(`The rental cannot be less than ${this._minDays} long`);
     }
 
-    this._startLocation = startLocation;
-    this._endLocation = endLocation;
-    this._distance = distance;
+    this._clientFirstName = clientFirstName;
+    this._clientLastName = clientLastName;
+    this._daysOfRental = daysOfRental;
     this._vehicle = vehicle;
   }
 
-  public get startLocation(): string {
-    return this._startLocation;
+  public get clientFirstName(): string {
+    return this._clientFirstName;
   }
 
-  public get endLocation(): string {
-    return this._endLocation;
+  public get clientLastName(): string {
+    return this._clientLastName;
   }
 
-  public get distance(): number {
-    return this._distance;
+  public get daysOfRental(): number {
+    return this._daysOfRental;
   }
 
   public get vehicle(): IVehicle {
@@ -62,15 +64,15 @@ export class Rental implements IRental {
   }
 
   public calculateTravelCosts(): number {
-    return this.distance * this.vehicle.pricePerKilometer;
+    return this.daysOfRental * this.vehicle.pricePerKilometer;
   }
 
   public print(): string {
     return (
       `Journey ----
-Start location: ${this.startLocation}
-End location: ${this.endLocation}
-Distance: ${this.distance}
+Client First Name: ${this.clientFirstName}
+Client Last Name: ${this.clientLastName}
+Duration of the rental: ${this.daysOfRental}
 Vehicle type: ${VehicleType[this.vehicle.vehicleType]}
 Travel costs: ${this.calculateTravelCosts()}`);
   }

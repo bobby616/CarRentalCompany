@@ -2,7 +2,7 @@ import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
 import { TravelDatabase } from '../../travel-database';
-import { IJourney } from '../../../models/contracts/rental';
+import { IRental } from '../../../models/contracts/rental';
 export class ListJourneys implements ICommand {
 
   private _factory: IModels;
@@ -15,9 +15,9 @@ export class ListJourneys implements ICommand {
 
   public execute(parameters: string[]): string {
     return `${
-      this._travelDatabase.journeys.length === 0
+      this._travelDatabase.rentals.length === 0
         ? 'There are no registered journeys.'
-        : this._travelDatabase.journeys.map((journey: IJourney) => journey.print()).join('\n####################\n')
+        : this._travelDatabase.rentals.map((journey: IRental) => journey.print()).join('\n####################\n')
       }`;
   }
 }

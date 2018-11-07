@@ -14,17 +14,17 @@ export class CreateBus implements ICommand {
   }
 
   public execute(parameters: string[]): string {
-    const [passengerCapacity, pricePerKilometer, engine, color, transmissionType, busLength] = parameters;
+    const [passengerCapacity, pricePerKilometer, engine, color, transmissionType, topSpeed] = parameters;
     if (isNaN(+passengerCapacity) || isNaN(+pricePerKilometer) || engine.length <= 0 ||
       color.length <= 0 || !transmissionType.localeCompare('Automatic') ||
-      !transmissionType.localeCompare('Manual') || isNaN(+busLength)) {
-      throw new Error('Failed to parse CreateBus command parameters.');
+      !transmissionType.localeCompare('Manual') || isNaN(+topSpeed)) {
+      throw new Error('Failed to parse CreateCar command parameters.');
     }
 
-    const bus: IVehicle = this._factory.createBus(+passengerCapacity, +pricePerKilometer, engine,
-      color, transmissionType, +busLength);
+    const car: IVehicle = this._factory.createCar(+passengerCapacity, +pricePerKilometer, engine,
+      color, transmissionType, +topSpeed);
 
-    this._travelDatabase.vehicles.push(bus);
+    this._travelDatabase.vehicles.push(car);
 
     return `Vehicle with ID ${this._travelDatabase.vehicles.length - 1} was created.`;
   }

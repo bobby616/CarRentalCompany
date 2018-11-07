@@ -1,9 +1,9 @@
-import { IJourney, ITicket, IVehicle } from '../../models';
+import {ITicket, IVehicle, IRental } from '../../models';
 
 export interface ITravelDatabase {
   vehicles: IVehicle[];
 
-  journeys: IJourney[];
+  rentals: IRental[];
 
   tickets: ITicket[];
 }

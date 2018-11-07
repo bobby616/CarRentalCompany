@@ -1,6 +1,5 @@
 import { Vehicle } from "./vehicle-model";
 import { ICaravan } from "./contracts";
-import { TransmissionType } from "./common/transmission-type";
 import { VehicleType } from ".";
 
 
@@ -10,9 +9,9 @@ export class Caravan extends Vehicle implements ICaravan {
     _hasBathroom: boolean;
 
     public constructor(passengerCapacity: number, pricePerKilometer: number, engine: string,
-        color: string, transmissionType: TransmissionType, livingArea: number, numberOfBeds: number,
+        color: string, transmissionType: string, livingArea: number, numberOfBeds: number,
         hasBathroom: boolean) {
-        super(passengerCapacity, pricePerKilometer, VehicleType.Land, engine, color, transmissionType);
+        super(passengerCapacity, pricePerKilometer, VehicleType.Caravan, engine, color, transmissionType);
         this._livingArea = livingArea;
         this._numberOfBeds = numberOfBeds;
         this._hasBathroom = hasBathroom;

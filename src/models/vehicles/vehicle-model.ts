@@ -1,6 +1,5 @@
 import { VehicleType } from './common/vehicle-type';
 import { IVehicle } from './contracts/vehicle';
-import { TransmissionType } from './common/transmission-type';
 
 export abstract class Vehicle implements IVehicle {
   
@@ -22,7 +21,7 @@ export abstract class Vehicle implements IVehicle {
 
   private readonly _color: string;
 
-  private readonly _transmissionType: TransmissionType;
+  private readonly _transmissionType: string;
 
   public constructor(
     passengerCapacity: number,
@@ -30,12 +29,12 @@ export abstract class Vehicle implements IVehicle {
     vehicleType: VehicleType,
     engine: string,
     color: string,
-    transmissionType: TransmissionType,
+    transmissionType: string,
   ) {
     //validations 
 
     this.validatePricePerKilometer(pricePerKilometer);
-    /* this.validatePassengerCapacity(passengerCapacity); */
+    this.validateTransmissionType(transmissionType);
     this.validateEngine(engine);
 
     this._passengerCapacity = passengerCapacity;
@@ -62,7 +61,7 @@ export abstract class Vehicle implements IVehicle {
   public get color(): string {
     return this._color;
   }
-  public get transmissionType(): TransmissionType {
+  public get transmissionType(): string {
     return this._transmissionType;
   }
 
@@ -88,6 +87,14 @@ Vehicle type: ${VehicleType[this.vehicleType]}`
     if (engine.length < 0 || engine.length > 1000) {
       throw new Error(
         `Invalid engine name`
+      );
+    }
+  }
+
+  protected validateTransmissionType(transmissionType: string): void {
+    if (transmissionType.length < 0 || transmissionType.length > 1000) {
+      throw new Error(
+        `Invalid transmission type `
       );
     }
   }

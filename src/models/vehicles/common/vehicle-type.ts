@@ -1,5 +1,6 @@
 export enum VehicleType {
-  Land = 0,
-  Air = 1,
-  Sea = 2
+  Car = 0,
+  Bus = 1,
+  Caravan = 2,
+  Motorcycle = 3,
 }

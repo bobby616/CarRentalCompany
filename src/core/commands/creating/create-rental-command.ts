@@ -1,4 +1,4 @@
-import { IJourney } from '../../../models';
+import { IRental } from '../../../models';
 import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
@@ -14,16 +14,17 @@ export class CreateJourney implements ICommand {
   }
 
   public execute(parameters: string[]): string {
-    const [startLocation, endLocation, distance, vehicleId] = parameters;
+    const [clientFirstName, clientLastName, daysOfRental, vehicleId] = parameters;
 
-    if (isNaN(+distance) || isNaN(+vehicleId) || !this._travelDatabase.vehicles[+vehicleId]) {
-      throw new Error('Failed to parse CreateJourney command parameters.');
+    if (clientFirstName.length === 0 || clientLastName.length === 0 || isNaN(+daysOfRental) 
+    || !this._travelDatabase.vehicles[+vehicleId]) {
+      throw new Error('Failed to parse CreateRental command parameters.');
     }
 
-    const journey: IJourney = this._factory.createJourney(startLocation, endLocation, +distance, this._travelDatabase.vehicles[+vehicleId]);
+    const rental: IRental = this._factory.createRental(clientFirstName, clientLastName, +daysOfRental, this._travelDatabase.vehicles[+vehicleId]);
 
-    this._travelDatabase.journeys.push(journey);
+    this._travelDatabase.rentals.push(rental);
 
-    return `Journey with ID ${this._travelDatabase.journeys.length - 1} was created.`;
+    return `Rental with ID ${this._travelDatabase.rentals.length - 1} was created.`;
   }
 }

@@ -1,7 +1,6 @@
 import { VehicleType } from './common/vehicle-type';
 import { IBus } from './contracts/bus';
 import { Vehicle } from './vehicle-model';
-import { TransmissionType } from './common/transmission-type';
 
 export class Bus extends Vehicle implements IBus {
   private readonly _busLength: number;
@@ -11,8 +10,8 @@ export class Bus extends Vehicle implements IBus {
   protected static _maxCapacity: number = 50;
 
   public constructor(passengerCapacity: number, pricePerKilometer: number, engine: string,
-    color: string, transmissionType: TransmissionType, busLength: number) {
-    super(passengerCapacity, pricePerKilometer, VehicleType.Land, engine, color, transmissionType);
+    color: string, transmissionType: string, busLength: number) {
+    super(passengerCapacity, pricePerKilometer, VehicleType.Bus, engine, color, transmissionType);
     this._busLength = busLength;
   }
 

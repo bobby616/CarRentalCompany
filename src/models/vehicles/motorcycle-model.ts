@@ -6,9 +6,10 @@ import { VehicleType } from ".";
 export class Motorcycle extends Vehicle implements IMotor{
     private readonly _topSpeed: number;
 
-    public constructor(passengerCapacity: number, pricePerKilometer: number, engine: string,
-        color: string, transmissionType: string, topSpeed: number) {
-        super(passengerCapacity, pricePerKilometer, VehicleType.Motorcycle, engine, color, transmissionType);
+    public constructor(passengerCapacity: number, pricePerDay: number, engine: string,
+        color: string, transmissionType: string,brand: string, topSpeed: number) {
+        super(passengerCapacity, pricePerDay, VehicleType.Motorcycle, engine, 
+            color, transmissionType, brand);
         this._topSpeed = topSpeed;
     }
 

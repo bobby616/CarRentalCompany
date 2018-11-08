@@ -5,6 +5,6 @@ export interface IRental {
   clientLastName: string;
   daysOfRental: number;
   vehicle: IVehicle;
-  calculateTravelCosts(): number;
+  calculateRentalCosts(): number;
   print(): string;
 }

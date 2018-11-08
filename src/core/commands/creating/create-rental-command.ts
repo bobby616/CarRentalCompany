@@ -3,7 +3,7 @@ import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
 import { TravelDatabase } from '../../travel-database';
-export class CreateJourney implements ICommand {
+export class CreateRental implements ICommand {
 
   private _factory: IModels;
   private _travelDatabase: ITravelDatabase;

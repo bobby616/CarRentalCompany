@@ -14,17 +14,17 @@ export class CreateBus implements ICommand {
   }
 
   public execute(parameters: string[]): string {
-    const [passengerCapacity, pricePerKilometer, engine, color, transmissionType, livingArea,numberOfBeds, hasBathroom] = parameters;
+    const [passengerCapacity, pricePerDay, engine, color, transmissionType, brand, livingArea,numberOfBeds, hasBathroom] = parameters;
 
-    if (isNaN(+passengerCapacity) || isNaN(+pricePerKilometer) || engine.length <= 0 ||
+    if (isNaN(+passengerCapacity) || isNaN(+pricePerDay) || engine.length <= 0 ||
       color.length <= 0 ||!transmissionType.localeCompare('Automatic') ||
-      !transmissionType.localeCompare('Manual') || isNaN(+livingArea) || isNaN(+numberOfBeds) 
+      !transmissionType.localeCompare('Manual') || brand.length <= 0 || isNaN(+livingArea) || isNaN(+numberOfBeds) 
       || hasBathroom !== ('true' || 'false')) {
       throw new Error('Failed to parse CreateCaravan command parameters.');
     }
 
-    const caravan: IVehicle = this._factory.createCaravan(+passengerCapacity, +pricePerKilometer, engine,
-      color, transmissionType, +livingArea, +numberOfBeds, Boolean(hasBathroom));
+    const caravan: IVehicle = this._factory.createCaravan(+passengerCapacity, +pricePerDay, engine,
+      color, transmissionType, brand, +livingArea, +numberOfBeds, Boolean(hasBathroom));
 
     this._travelDatabase.vehicles.push(caravan);
 

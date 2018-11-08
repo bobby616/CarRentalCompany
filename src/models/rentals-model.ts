@@ -63,8 +63,8 @@ export class Rental implements IRental {
     return this._vehicle;
   }
 
-  public calculateTravelCosts(): number {
-    return this.daysOfRental * this.vehicle.pricePerKilometer;
+  public calculateRentalCosts(): number {
+    return this.daysOfRental * this.vehicle.pricePerDay;
   }
 
   public print(): string {
@@ -74,6 +74,6 @@ Client First Name: ${this.clientFirstName}
 Client Last Name: ${this.clientLastName}
 Duration of the rental: ${this.daysOfRental}
 Vehicle type: ${VehicleType[this.vehicle.vehicleType]}
-Travel costs: ${this.calculateTravelCosts()}`);
+Travel costs: ${this.calculateRentalCosts()}`);
   }
 }

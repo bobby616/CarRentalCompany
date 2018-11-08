@@ -2,18 +2,19 @@ import { VehicleType } from './common/vehicle-type';
 import { IVehicle } from './contracts/vehicle';
 
 export abstract class Vehicle implements IVehicle {
-  
+  private readonly _brand: string;
+
   protected static _minCapacity: number = 1;
 
   protected static _maxCapacity: number = 800;
 
   protected static _minPrice: number = 0.1;
 
-  protected static _maxPrice: number = 2.5;
+  protected static _maxPrice: number = 500;
 
   private readonly _passengerCapacity: number;
 
-  private readonly _pricePerKilometer: number;
+  private readonly _pricePerDay: number;
 
   private readonly _vehicleType: VehicleType;
 
@@ -25,31 +26,37 @@ export abstract class Vehicle implements IVehicle {
 
   public constructor(
     passengerCapacity: number,
-    pricePerKilometer: number,
+    pricePerDay: number,
     vehicleType: VehicleType,
     engine: string,
     color: string,
     transmissionType: string,
+    brand: string,
   ) {
     //validations 
 
-    this.validatePricePerKilometer(pricePerKilometer);
+    this.validatepricePerDay(pricePerDay);
     this.validateTransmissionType(transmissionType);
     this.validateEngine(engine);
 
     this._passengerCapacity = passengerCapacity;
-    this._pricePerKilometer = pricePerKilometer;
+    this._pricePerDay = pricePerDay;
     this._vehicleType = vehicleType;
     this._engine = engine;
     this._color = color;
     this._transmissionType = transmissionType;
+    this._brand = brand;
   }
 
   public get passengerCapacity(): number {
     return this._passengerCapacity;
   }
-  public get pricePerKilometer(): number {
-    return this._pricePerKilometer;
+  public get pricePerDay(): number {
+    return this._pricePerDay;
+  }
+
+  public get brand(): string {
+    return this._brand;
   }
 
   public get vehicleType(): VehicleType {
@@ -68,15 +75,15 @@ export abstract class Vehicle implements IVehicle {
   public print(): string {
     return (
       `Passenger capacity: ${this.passengerCapacity}
-Price per kilometer: ${this.pricePerKilometer}
+Price per kilometer: ${this.pricePerDay}
 Vehicle type: ${VehicleType[this.vehicleType]}`
     );
   }
 
   abstract validatePassengerCapacity(passengerCapacity: number): void;
 
-  protected validatePricePerKilometer(pricePerKilometer: number): void {
-    if (pricePerKilometer < Vehicle._minPrice || pricePerKilometer > Vehicle._maxPrice) {
+  protected validatepricePerDay(pricePerDay: number): void {
+    if (pricePerDay < Vehicle._minPrice || pricePerDay > Vehicle._maxPrice) {
       throw new Error(
         `A price per kilometer on a vehicle cannot be ${Vehicle._minPrice} leva or more than ${Vehicle._maxPrice} leva.`
       );

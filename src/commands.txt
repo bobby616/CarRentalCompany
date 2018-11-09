@@ -10,16 +10,3 @@ createcaravan 10 200 v3 orange Automatic BMW 35 2 true
 listvehicles
 listrentals
 
-// from the old
-createtrain 300 0.4 3
-createairplane 250 1 true
-createairplane 250 2.7 true
-createtrain 80 0.4 3
-listvehicles
-createjourney Sofia vTurnovo 300 0
-createjourney Sofia vTurnovo 3 0
-createjourney vTurnovo Sofia 300 3
-listjourneys
-createticket 0 30
-createticket 1 100
-listtickets

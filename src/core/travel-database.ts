@@ -1,4 +1,4 @@
-import { IJourney, ITicket, IVehicle } from '../models';
+import { IVehicle, IRental } from '../models';
 import { ITravelDatabase } from './contracts/travel-database';
 export class TravelDatabase implements ITravelDatabase {
 
@@ -6,13 +6,11 @@ export class TravelDatabase implements ITravelDatabase {
 
   private readonly _vehicles: IVehicle[];
 
-  private readonly _journeys: IJourney[];
+  private readonly _rentals: IRental[];
 
-  private readonly _tickets: ITicket[];
 
   private constructor() {
-    this._journeys = [];
-    this._tickets = [];
+    this._rentals = [];
     this._vehicles = [];
   }
 
@@ -20,12 +18,8 @@ export class TravelDatabase implements ITravelDatabase {
     return this._vehicles;
   }
 
-  public get journeys(): IJourney[] {
-    return this._journeys;
-  }
-
-  public get tickets(): ITicket[] {
-    return this._tickets;
+  public get rentals(): IRental[] {
+    return this._rentals;
   }
 
   public static get INSTANCE(): ITravelDatabase {

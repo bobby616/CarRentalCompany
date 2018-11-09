@@ -21,7 +21,8 @@ export class CreateMotorcycle implements ICommand {
             throw new Error('Failed to parse CreateMotorcycle command parameters.');
         }
 
-        const motorcycle: IVehicle = this._factory.createMotorcycle(+passengerCapacity, +pricePerDay, engine, color, transmissionType, brand, +topSpeed);
+        const motorcycle: IVehicle = this._factory
+        .createMotorcycle(+passengerCapacity, +pricePerDay, engine, color, transmissionType, brand, +topSpeed);
 
         this._travelDatabase.vehicles.push(motorcycle);
 

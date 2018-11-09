@@ -8,14 +8,13 @@ import { IUser } from '../../models/contracts/user';
 import { User } from '../../models/users/user-model';
 import { Car } from '../../models/vehicles/car-model';
 import { Caravan } from '../../models/vehicles/caravan-model';
-import { UserType } from '../../models/vehicles/common/user-type';
 import { Motorcycle } from '../../models/vehicles/motorcycle-model';
 import { IModels } from '../contracts/models-factory';
 
 export class Models implements IModels {
 
-  public createUser(userFirstName: string, userLastName: string, userAge: number, userType: UserType): IUser {
-    return new User(userFirstName, userLastName, userAge, UserType.Client);
+  public createUser(userFirstName: string, userLastName: string, userAge: number, userType: number): IUser {
+    return new User(userFirstName, userLastName, userAge, userType);
   }
 
   public createCar(passengerCapacity: number, pricePerDay: number, engine: string, color: string,
@@ -34,8 +33,8 @@ export class Models implements IModels {
     transmissionType: string, brand: string, busLength: number): IVehicle {
     return new Bus(passengerCapacity, pricePerDay, engine, color, transmissionType, brand, busLength);
   }
-  public createRental(clientFirstName: string, clientLastName: string,
+  public createRental(userName: string,
     daysOfRental: number, vehicleId: IVehicle): IRental {
-    return new Rental(clientFirstName, clientLastName, daysOfRental, vehicleId);
+    return new Rental(userName, daysOfRental, vehicleId);
   }
 }

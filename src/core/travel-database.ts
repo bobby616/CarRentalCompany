@@ -1,4 +1,4 @@
-import { IVehicle, IRental } from '../models';
+import { IRental, IVehicle } from '../models';
 import { ITravelDatabase } from './contracts/travel-database';
 export class TravelDatabase implements ITravelDatabase {
 
@@ -7,7 +7,6 @@ export class TravelDatabase implements ITravelDatabase {
   private readonly _vehicles: IVehicle[];
 
   private readonly _rentals: IRental[];
-
 
   private constructor() {
     this._rentals = [];

@@ -5,3 +5,6 @@ export * from './reader';
 export * from './parser';
 export * from './command-factory';
 export * from './travel-database';
+export * from './user-database';
+
+

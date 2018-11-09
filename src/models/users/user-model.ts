@@ -12,7 +12,7 @@ export class User implements IUser {
     userFirstName: string,
     userLastName: string,
     userAge: number,
-    userType: UserType
+    userType: number
   ) {
     this.validateUserAge(userAge);
 
@@ -34,12 +34,18 @@ export class User implements IUser {
     return this._userAge;
   }
 
-  public get userType() : UserType {
+  public get userType() : number {
     return this._userType;
   }
 
   protected validateUserAge(userAge: number) : void {
     if (userAge < 18) {
+      throw new Error('User must be 18 years or older.');
+    }
+  }
+
+  protected validateUserType(userType: number) : void {
+    if (userType < 0 || userType > 1) {
       throw new Error('User must be 18 years or older.');
     }
   }

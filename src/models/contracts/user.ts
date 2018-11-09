@@ -4,5 +4,5 @@ export interface IUser {
   userFirstName: string;
   userLastName: string;
   userAge: number;
-  userType: UserType;
+  userType: number;
 }

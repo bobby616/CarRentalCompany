@@ -3,7 +3,7 @@ import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
 import { IModels, ITravelDatabase } from './../../contracts';
 import { TravelDatabase } from './../../travel-database';
-export class CreateBus implements ICommand {
+export class CreateCaravan implements ICommand {
 
   private _factory: IModels;
   private _travelDatabase: ITravelDatabase;
@@ -17,8 +17,8 @@ export class CreateBus implements ICommand {
     const [passengerCapacity, pricePerDay, engine, color, transmissionType, brand, livingArea,numberOfBeds, hasBathroom] = parameters;
 
     if (isNaN(+passengerCapacity) || isNaN(+pricePerDay) || engine.length <= 0 ||
-      color.length <= 0 ||!transmissionType.localeCompare('Automatic') ||
-      !transmissionType.localeCompare('Manual') || brand.length <= 0 || isNaN(+livingArea) || isNaN(+numberOfBeds) 
+      color.length <= 0 || !(transmissionType.localeCompare('Automatic') ||
+      transmissionType.localeCompare('Manual')) || brand.length <= 0 || isNaN(+livingArea) || isNaN(+numberOfBeds) 
       || hasBathroom !== ('true' || 'false')) {
       throw new Error('Failed to parse CreateCaravan command parameters.');
     }

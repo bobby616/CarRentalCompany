@@ -3,10 +3,11 @@
 
 // car rental commands
 
-createbus 10 100 v8 blue Manual VolksWagen 15
+createbus 10 100 v8 blue Manual VolksWagen 10
 createcar 5 70 turbo green Automatic BMW 200
 createmotorcycle 2 30 turbo green Manual Mercedes 250
 createcaravan 10 200 v3 orange Automatic BMW 35 2 true
+createrental Pesho Naiden 2 0
 listvehicles
 listrentals
 

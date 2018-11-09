@@ -2,8 +2,6 @@ import { VehicleType } from './common/vehicle-type';
 import { IVehicle } from './contracts/vehicle';
 
 export abstract class Vehicle implements IVehicle {
-  private readonly _brand: string;
-
   protected static _minCapacity: number = 1;
 
   protected static _maxCapacity: number = 800;
@@ -11,6 +9,8 @@ export abstract class Vehicle implements IVehicle {
   protected static _minPrice: number = 0.1;
 
   protected static _maxPrice: number = 500;
+
+  private readonly _brand: string;
 
   private readonly _passengerCapacity: number;
 
@@ -31,9 +31,9 @@ export abstract class Vehicle implements IVehicle {
     engine: string,
     color: string,
     transmissionType: string,
-    brand: string,
+    brand: string
   ) {
-    //validations 
+    // Validations
 
     this.validatepricePerDay(pricePerDay);
     this.validateTransmissionType(transmissionType);

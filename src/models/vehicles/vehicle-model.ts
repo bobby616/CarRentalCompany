@@ -1,3 +1,4 @@
+
 import { VehicleType } from './common/vehicle-type';
 import { IVehicle } from './contracts/vehicle';
 
@@ -74,7 +75,7 @@ export abstract class Vehicle implements IVehicle {
 
   public print(): string {
     return (
-`Passenger capacity: ${this.passengerCapacity}
+      `Passenger capacity: ${this.passengerCapacity}
     Rental price per day: ${this.pricePerDay}
     Vehicle type: ${VehicleType[this.vehicleType]}`
     );

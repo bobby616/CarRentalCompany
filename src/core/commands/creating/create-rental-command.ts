@@ -14,15 +14,15 @@ export class CreateRental implements ICommand {
   }
 
   public execute(parameters: string[]): string {
-    const [clientFirstName, clientLastName, daysOfRental, vehicleId] = parameters;
+    const [userName, daysOfRental, vehicleId] = parameters;
 
-    if (clientFirstName.length === 0 || clientLastName.length === 0 || isNaN(+daysOfRental)
+    if (userName.length === 0 || isNaN(+daysOfRental)
     || !this._travelDatabase.vehicles[+vehicleId]) {
       throw new Error('Failed to parse CreateRental command parameters.');
     }
 
     const rental: IRental = this._factory
-    .createRental(clientFirstName, clientLastName, +daysOfRental, this._travelDatabase.vehicles[+vehicleId]);
+    .createRental(userName, +daysOfRental, this._travelDatabase.vehicles[+vehicleId]);
 
     this._travelDatabase.rentals.push(rental);
 

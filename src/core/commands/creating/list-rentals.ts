@@ -1,8 +1,8 @@
+import { IRental } from '../../../models/contracts/rental';
 import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
 import { TravelDatabase } from '../../travel-database';
-import { IRental } from '../../../models/contracts/rental';
 export class ListRentals implements ICommand {
 
   private _factory: IModels;

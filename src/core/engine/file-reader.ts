@@ -1,6 +1,6 @@
 import { readFile } from 'fs';
-import { IReader } from './../contracts/reader';
 import { injectable } from 'inversify';
+import { IReader } from './../contracts/reader';
 
 @injectable()
 export class FileReader implements IReader {

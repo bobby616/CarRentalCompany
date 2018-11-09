@@ -1,4 +1,3 @@
-import { UserType } from '../vehicles/common/user-type';
 import { IUser } from './../contracts/user';
 
 export class User implements IUser {
@@ -6,7 +5,7 @@ export class User implements IUser {
   private readonly _userFirstName: string;
   private readonly _userLastName: string;
   private readonly _userAge: number;
-  private readonly _userType: UserType;
+  private readonly _userType: number;
 
   public constructor(userFirstName: string,userLastName: string,userAge: number,userType: number,
 userName: string,

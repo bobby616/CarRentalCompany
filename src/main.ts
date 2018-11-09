@@ -1,7 +1,10 @@
+import 'reflect-metadata';
 import { IEngine } from './core/contracts/engine';
 import { Engine } from './core/engine';
+import { container } from './core/common/ioc.config';
+import { TYPES } from './core/common/types';
 
-const engine: IEngine = Engine.INSTANCE;
+const engine: IEngine = container.get<IEngine>(TYPES.engine);
 
 const htmlRender: () => void = (): void => {
   const startBtn: HTMLButtonElement = <HTMLButtonElement>(document.getElementById('run'));

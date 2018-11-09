@@ -3,24 +3,22 @@ import { ICommand, ICommandParser, IEngine, IReader } from '../contracts';
 import { CommandParser } from '../providers';
 import { FileReader } from './file-reader';
 import { HtmlReader } from './html-reader';
+import { TYPES } from '../common/types';
+import { injectable, inject } from 'inversify';
+
+@injectable()
 
 export class Engine implements IEngine {
-
-  private static readonly SINGLE_INSTANCE: IEngine = new Engine();
 
   private readonly _reader: IReader;
 
   private readonly _commandParser: ICommandParser;
 
-  private constructor() {
-    this._reader = new FileReader();
+  public constructor(@inject(TYPES.reader) reader: IReader) {
+    this._reader = reader;
     // this._reader = new HtmlReader();
 
     this._commandParser = new CommandParser();
-  }
-
-  public static get INSTANCE(): IEngine {
-    return this.SINGLE_INSTANCE;
   }
 
   public async start(): Promise<string> {

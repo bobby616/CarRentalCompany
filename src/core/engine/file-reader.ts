@@ -1,6 +1,8 @@
 import { readFile } from 'fs';
 import { IReader } from './../contracts/reader';
+import { injectable } from 'inversify';
 
+@injectable()
 export class FileReader implements IReader {
   public async read(path?: string): Promise<string[]> {
     return new Promise((resolve: (str: string[]) => void, reject: (str: Error) => void): void => {

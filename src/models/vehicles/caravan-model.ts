@@ -30,7 +30,7 @@ export class Caravan extends Vehicle implements ICaravan {
 
     public print(): string {
         return (
-            `Motorcycle----
+     `Caravan----
     ${super.print()} 
     Living area: ${this.livingArea}
     Number of beds: ${this.numberOfBeds}
@@ -41,7 +41,7 @@ export class Caravan extends Vehicle implements ICaravan {
     validatePassengerCapacity(passengerCapacity: number): void {
         if (passengerCapacity < 0 || passengerCapacity > 25) {
             throw new Error(
-                `A motorcycle cannot have less than 0 passengers or more than 25 passengers.`
+                `A caravan cannot have less than 0 passengers or more than 25 passengers.`
             );
         }
     }

@@ -31,4 +31,5 @@ export class Models implements IModels {
     daysOfRental: number, vehicleId: IVehicle): IRental{
       return new Rental(clientFirstName, clientLastName, daysOfRental, vehicleId);
     }
+    
 }

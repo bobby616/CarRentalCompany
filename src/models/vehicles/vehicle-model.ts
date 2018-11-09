@@ -74,9 +74,9 @@ export abstract class Vehicle implements IVehicle {
 
   public print(): string {
     return (
-      `Passenger capacity: ${this.passengerCapacity}
-Price per kilometer: ${this.pricePerDay}
-Vehicle type: ${VehicleType[this.vehicleType]}`
+`Passenger capacity: ${this.passengerCapacity}
+    Rental price per day: ${this.pricePerDay}
+    Vehicle type: ${VehicleType[this.vehicleType]}`
     );
   }
 

@@ -7,7 +7,8 @@ import { CreateUser } from './../commands/creating/create-user-command';
 
 export interface IModels {
 
-  createUser(userFirstName: string, userLastName: string, userAge: number, userType: UserType): IUser;
+  createUser(userFirstName: string, userLastName: string, userAge: number, userType: number,
+    userName: string): IUser;
 
   createBus(passengerCapacity: number, pricePerDay: number, engine: string, color: string, transmissionType: string, brand: string, busLength: number): IVehicle;
 

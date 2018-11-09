@@ -13,8 +13,8 @@ import { IModels } from '../contracts/models-factory';
 
 export class Models implements IModels {
 
-  public createUser(userFirstName: string, userLastName: string, userAge: number, userType: number): IUser {
-    return new User(userFirstName, userLastName, userAge, userType);
+  public createUser(userFirstName: string, userLastName: string, userAge: number, userType: number, userName: string): IUser {
+    return new User(userFirstName, userLastName, userAge, userType, userName);
   }
 
   public createCar(passengerCapacity: number, pricePerDay: number, engine: string, color: string,

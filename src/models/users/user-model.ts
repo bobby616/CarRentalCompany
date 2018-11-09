@@ -1,17 +1,14 @@
 import { IUser } from './../contracts/user';
 
 export class User implements IUser {
-
+  private readonly _userName: string;
   private readonly _userFirstName: string;
   private readonly _userLastName: string;
   private readonly _userAge: number;
   private readonly _userType: number;
 
-  public constructor(
-    userFirstName: string,
-    userLastName: string,
-    userAge: number,
-    userType: number
+  public constructor(userFirstName: string,userLastName: string,userAge: number,userType: number,
+userName: string,
   ) {
     this.validateUserAge(userAge);
 
@@ -19,6 +16,7 @@ export class User implements IUser {
     this._userLastName = userLastName;
     this._userAge = userAge;
     this._userType = userType;
+    this._userName = userName;
   }
 
   public get userFirstName() : string {
@@ -35,6 +33,10 @@ export class User implements IUser {
 
   public get userType() : number {
     return this._userType;
+  }
+
+  public get userName() : string {
+    return this._userName;
   }
 
   protected validateUserAge(userAge: number) : void {

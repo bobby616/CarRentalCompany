@@ -18,7 +18,7 @@ export class CreateBus implements ICommand {
   }
 
   public execute(parameters: string[]): string {
-    const [passengerCapacity, userName, pricePerDay, engine, color, transmissionType, brand, busLength] = parameters;
+    const [userName, passengerCapacity, pricePerDay, engine, color, transmissionType, brand, busLength] = parameters;
     if (isNaN(+passengerCapacity) || isNaN(+pricePerDay) || (engine.length <= 0) ||
       (color.length <= 0) || !(transmissionType.localeCompare('Automatic') ||
         transmissionType.localeCompare('Manual')) || (brand.length <= 0) || isNaN(+busLength)) {

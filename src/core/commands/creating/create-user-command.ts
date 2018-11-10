@@ -22,7 +22,7 @@ export class CreateUser implements ICommand {
             throw new Error('Failed to parse CreateUser command parameters. CUSTOM');
         }
         if (this._userDatabase.users.findIndex((currUser: IUser) => currUser.userName === userName) !== -1) {
-            throw new Error('A user with this name already exists.');
+            throw new Error('Failed to parse CreateUser command parameters. CUSTOM');
         }
 
         const user: IUser = this._factory.createUser(userFirstName, userFirstName, +userAge, +userType, userName);

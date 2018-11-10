@@ -7,8 +7,8 @@ export class User implements IUser {
   private readonly _userAge: number;
   private readonly _userType: number;
 
-  public constructor(userFirstName: string,userLastName: string,userAge: number,userType: number,
-userName: string,
+  public constructor(userFirstName: string, userLastName: string, userAge: number, userType: number,
+userName: string
   ) {
     this.validateUserAge(userAge);
 

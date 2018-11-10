@@ -3,51 +3,6 @@ import { VehicleType } from './common/vehicle-type';
 import { IVehicle } from './contracts/vehicle';
 
 export abstract class Vehicle implements IVehicle {
-  private readonly _brand: string;
-
-  protected static _minCapacity: number = 1;
-
-  protected static _maxCapacity: number = 800;
-
-  protected static _minPrice: number = 0.1;
-
-  protected static _maxPrice: number = 500;
-
-  private readonly _passengerCapacity: number;
-
-  private readonly _pricePerDay: number;
-
-  private readonly _vehicleType: VehicleType;
-
-  private readonly _engine: string;
-
-  private readonly _color: string;
-
-  private readonly _transmissionType: string;
-
-  public constructor(
-    passengerCapacity: number,
-    pricePerDay: number,
-    vehicleType: VehicleType,
-    engine: string,
-    color: string,
-    transmissionType: string,
-    brand: string,
-  ) {
-    //validations 
-
-    this.validatepricePerDay(pricePerDay);
-    this.validateTransmissionType(transmissionType);
-    this.validateEngine(engine);
-
-    this._passengerCapacity = passengerCapacity;
-    this._pricePerDay = pricePerDay;
-    this._vehicleType = vehicleType;
-    this._engine = engine;
-    this._color = color;
-    this._transmissionType = transmissionType;
-    this._brand = brand;
-  }
 
   public get passengerCapacity(): number {
     return this._passengerCapacity;
@@ -73,6 +28,50 @@ export abstract class Vehicle implements IVehicle {
     return this._transmissionType;
   }
 
+  protected static _minCapacity: number = 1;
+
+  protected static _maxCapacity: number = 800;
+
+  protected static _minPrice: number = 0.1;
+
+  protected static _maxPrice: number = 500;
+  private readonly _brand: string;
+
+  private readonly _passengerCapacity: number;
+
+  private readonly _pricePerDay: number;
+
+  private readonly _vehicleType: VehicleType;
+
+  private readonly _engine: string;
+
+  private readonly _color: string;
+
+  private readonly _transmissionType: string;
+
+  public constructor(
+    passengerCapacity: number,
+    pricePerDay: number,
+    vehicleType: VehicleType,
+    engine: string,
+    color: string,
+    transmissionType: string,
+    brand: string
+  ) {
+
+    this.validatepricePerDay(pricePerDay);
+    this.validateTransmissionType(transmissionType);
+    this.validateEngine(engine);
+
+    this._passengerCapacity = passengerCapacity;
+    this._pricePerDay = pricePerDay;
+    this._vehicleType = vehicleType;
+    this._engine = engine;
+    this._color = color;
+    this._transmissionType = transmissionType;
+    this._brand = brand;
+  }
+
   public print(): string {
     return (
       `Passenger capacity: ${this.passengerCapacity}
@@ -81,7 +80,7 @@ export abstract class Vehicle implements IVehicle {
     );
   }
 
-  abstract validatePassengerCapacity(passengerCapacity: number): void;
+  public abstract validatePassengerCapacity(passengerCapacity: number): void;
 
   protected validatepricePerDay(pricePerDay: number): void {
     if (pricePerDay < Vehicle._minPrice || pricePerDay > Vehicle._maxPrice) {

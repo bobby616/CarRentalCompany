@@ -15,7 +15,7 @@ export class ListVehicles implements ICommand {
   }
 
   public execute(parameters: string[]): string {
-    
+
     return `${
       this._travelDatabase.vehicles.length === 0
         ? 'There are no registered vehicles.'

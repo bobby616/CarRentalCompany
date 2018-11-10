@@ -1,17 +1,16 @@
-import { Vehicle } from "./vehicle-model";
-import { ICaravan } from "./contracts";
-import { VehicleType } from ".";
-
+import { VehicleType } from '.';
+import { ICaravan } from './contracts';
+import { Vehicle } from './vehicle-model';
 
 export class Caravan extends Vehicle implements ICaravan {
-    _livingArea: number;
-    _numberOfBeds: number;
-    _hasBathroom: boolean;
+    public _livingArea: number;
+    public _numberOfBeds: number;
+    public _hasBathroom: boolean;
 
     public constructor(passengerCapacity: number, pricePerDay: number, engine: string,
         color: string, transmissionType: string, brand: string,  livingArea: number, numberOfBeds: number,
         hasBathroom: boolean) {
-        super(passengerCapacity, pricePerDay, VehicleType.Caravan, engine, color, 
+        super(passengerCapacity, pricePerDay, VehicleType.Caravan, engine, color,
             transmissionType, brand);
         this._livingArea = livingArea;
         this._numberOfBeds = numberOfBeds;
@@ -31,20 +30,19 @@ export class Caravan extends Vehicle implements ICaravan {
     public print(): string {
         return (
      `Caravan----
-    ${super.print()} 
+    ${super.print()}
     Living area: ${this.livingArea}
     Number of beds: ${this.numberOfBeds}
     Has bathroom: ${this.hasBathroom}`
         );
     }
 
-    validatePassengerCapacity(passengerCapacity: number): void {
+    public validatePassengerCapacity(passengerCapacity: number): void {
         if (passengerCapacity < 0 || passengerCapacity > 25) {
             throw new Error(
                 `A caravan cannot have less than 0 passengers or more than 25 passengers.`
             );
         }
     }
-
 
 }

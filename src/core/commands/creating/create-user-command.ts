@@ -19,7 +19,7 @@ export class CreateUser implements ICommand {
         if (userFirstName.length < 0 || userLastName.length < 0 || +userAge < 0 || +userType < 0) {
             throw new Error('Failed to parse CreateUser command parameters. CUSTOM');
         }
-        if(this._userDatabase.users.findIndex( (user) => user.userName === userName) !== -1){
+        if (this._userDatabase.users.findIndex((currUser: IUser) => currUser.userName === userName) !== -1) {
             throw new Error('Failed to parse CreateUser command parameters. CUSTOM');
         }
 

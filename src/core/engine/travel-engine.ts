@@ -1,10 +1,10 @@
+import { inject, injectable } from 'inversify';
 import { join } from 'path';
+import { TYPES } from '../common/types';
 import { ICommand, ICommandParser, IEngine, IReader } from '../contracts';
 import { CommandParser } from '../providers';
 import { FileReader } from './file-reader';
 import { HtmlReader } from './html-reader';
-import { TYPES } from '../common/types';
-import { injectable, inject } from 'inversify';
 
 @injectable()
 
@@ -16,7 +16,7 @@ export class Engine implements IEngine {
 
   public constructor(@inject(TYPES.reader) reader: IReader) {
     this._reader = reader;
-    // this._reader = new HtmlReader();
+    // Commented this._reader = new HtmlReader();
 
     this._commandParser = new CommandParser();
   }

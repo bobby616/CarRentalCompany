@@ -1,7 +1,6 @@
-import { Vehicle } from "./vehicle-model";
-import { ICar } from "./contracts";
-import { VehicleType } from ".";
-
+import { VehicleType } from '.';
+import { ICar } from './contracts';
+import { Vehicle } from './vehicle-model';
 
 export class Car extends Vehicle implements ICar {
     private readonly _topSpeed: number;
@@ -19,12 +18,12 @@ export class Car extends Vehicle implements ICar {
     public print(): string {
         return (
             `Car ----
-    ${super.print()} 
+    ${super.print()}
     Maximum speed of the car: ${this.topSpeed}`
         );
     }
 
-    validatePassengerCapacity(passengerCapacity: number): void {
+    public validatePassengerCapacity(passengerCapacity: number): void {
         if (passengerCapacity < 0 || passengerCapacity > 12) {
             throw new Error(
                 `A car cannot have less than 0 passengers or more than 12 passengers.`

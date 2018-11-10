@@ -9,7 +9,7 @@ export class CommandParser implements ICommandParser {
   }
 
   public parseCommand(line: string): ICommand {
-    const commandName = line.trim().split(' ')[0];
+    const commandName: string = line.trim().split(' ')[0];
 
     return this._commandFactory.getCommand(commandName);
   }

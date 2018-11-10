@@ -1,8 +1,8 @@
 import { Container, interfaces } from 'inversify';
-import { IEngine, ICommand, IReader } from '../contracts';
+import { ICommand, IEngine, IReader } from '../contracts';
 import { Engine } from '../engine';
-import { TYPES } from './types';
 import { FileReader } from '../engine/file-reader';
+import { TYPES } from './types';
 
 const container: Container = new Container();
 

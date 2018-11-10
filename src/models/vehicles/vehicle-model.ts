@@ -32,6 +32,11 @@ export abstract class Vehicle implements IVehicle {
     return this._state;
   }
 
+  public set state(val: string) {
+    if (val.length > 0) {
+      this._state = val;
+    }
+  }
   protected static _minCapacity: number = 1;
 
   protected static _maxCapacity: number = 800;
@@ -53,7 +58,7 @@ export abstract class Vehicle implements IVehicle {
 
   private readonly _transmissionType: string;
 
-  private readonly _state: string;
+  private _state: string;
 
   public constructor(
     passengerCapacity: number,

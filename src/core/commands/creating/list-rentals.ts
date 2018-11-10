@@ -1,9 +1,9 @@
 import { IRental } from '../../../models/contracts/rental';
+import { IUser } from '../../../models/contracts/user';
 import { IModels, ITravelDatabase, IUserDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
 import { TravelDatabase } from '../../travel-database';
-import { IUser } from '../../../models/contracts/user';
 import { UserDatabase } from '../../user-database';
 export class ListRentals implements ICommand {
 
@@ -22,6 +22,7 @@ export class ListRentals implements ICommand {
     if (this._userDatabase.users.findIndex((currUser: IUser) => currUser.userName === userName) === -1) {
       throw new Error('THERE IS NO SUCH USER!!');
   }
+
     return `${
       this._travelDatabase.rentals.length === 0
         ? 'There are no registered rentals.'

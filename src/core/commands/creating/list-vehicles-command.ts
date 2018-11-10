@@ -1,9 +1,9 @@
 import { IVehicle } from '../../../models';
+import { IUser } from '../../../models/contracts/user';
 import { IModels, ITravelDatabase, IUserDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
 import { TravelDatabase } from '../../travel-database';
-import { IUser } from '../../../models/contracts/user';
 import { UserDatabase } from '../../user-database';
 
 export class ListVehicles implements ICommand {
@@ -26,7 +26,6 @@ export class ListVehicles implements ICommand {
     if (this._userDatabase.users.find((user: IUser) => user.userName === userName).userType === 0) {
       throw new Error('THE USER DOESN"T HAVE PERMISSION TO DO THAT');
     }
-    
 
     return `${
       this._travelDatabase.vehicles.length === 0

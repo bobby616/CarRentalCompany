@@ -1,9 +1,9 @@
 import { IRental } from '../../../models';
+import { IUser } from '../../../models/contracts/user';
 import { IModels, ITravelDatabase, IUserDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
 import { TravelDatabase } from '../../travel-database';
-import { IUser } from '../../../models/contracts/user';
 import { UserDatabase } from '../../user-database';
 export class CreateRental implements ICommand {
 
@@ -29,6 +29,8 @@ export class CreateRental implements ICommand {
     } if (this._userDatabase.users.find((user: IUser) => user.userName === userName).userType === 1) {
       throw new Error('THE USER DOESN"T HAVE PERMISSION TO DO THAT');
     }
+
+    this._travelDatabase.vehicles[+vehicleId].state = 'rented';
 
     const rental: IRental = this._factory
       .createRental(userName, +daysOfRental, this._travelDatabase.vehicles[+vehicleId]);

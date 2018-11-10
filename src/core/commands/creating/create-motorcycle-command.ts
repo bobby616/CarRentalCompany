@@ -1,10 +1,10 @@
 import { IVehicle } from '../../../models';
+import { IUser } from '../../../models/contracts/user';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
+import { UserDatabase } from '../../user-database';
 import { IModels, ITravelDatabase, IUserDatabase } from './../../contracts';
 import { TravelDatabase } from './../../travel-database';
-import { IUser } from '../../../models/contracts/user';
-import { UserDatabase } from '../../user-database';
 export class CreateMotorcycle implements ICommand {
 
     private _factory: IModels;

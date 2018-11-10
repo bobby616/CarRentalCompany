@@ -1,8 +1,6 @@
 import { ICommand } from '../contracts/command';
 import { ICommandParser } from '../contracts/parser';
 import { CommandFactory } from './travel-command-factory';
-import { injectable } from 'inversify';
-@injectable()
 export class CommandParser implements ICommandParser {
   private _commandFactory: CommandFactory;
 

@@ -7,6 +7,19 @@ import { Engine } from './core/engine';
 
 const engine: IEngine = container.get<IEngine>(TYPES.engine);
 
+const htmlRender: () => void = (): void => {
+  const startBtn: HTMLButtonElement = <HTMLButtonElement>(document.getElementById('run'));
+  const result: HTMLDivElement = <HTMLDivElement>(document.getElementById('result'));
+
+  startBtn.addEventListener(
+    'click',
+    async (): Promise<void> => {
+      const resultText: string = await engine.start();
+      result.innerText = resultText;
+    }
+  );
+};
+
 const consoleRender: () => Promise<void> = async (): Promise<void> => {
   try {
     const resultText: string = await engine.start();
@@ -16,5 +29,8 @@ const consoleRender: () => Promise<void> = async (): Promise<void> => {
   }
 };
 
-consoleRender();
-
+try {
+  htmlRender();
+} catch (error) {
+  consoleRender();
+}

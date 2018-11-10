@@ -14,12 +14,11 @@ export class Engine implements IEngine {
 
   private readonly _commandParser: ICommandParser;
 
-  public constructor(@inject(TYPES.reader) reader: IReader,
-  @inject(TYPES.parser) commandParser: ICommandParser) {
+  public constructor(@inject(TYPES.reader) reader: IReader) {
     this._reader = reader;
     // Commented this._reader = new HtmlReader();
 
-    this._commandParser = commandParser;
+    this._commandParser = new CommandParser();
   }
 
   public async start(): Promise<string> {

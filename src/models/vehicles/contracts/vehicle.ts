@@ -8,5 +8,6 @@ export interface IVehicle {
   color: string;
   transmissionType: string;
   vehicleType: VehicleType;
+  state: string;
   print(): string;
 }

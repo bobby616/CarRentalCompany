@@ -18,7 +18,7 @@ export class CreateMotorcycle implements ICommand {
     }
 
     public execute(parameters: string[]): string {
-        const [userName, passengerCapacity, pricePerDay, engine, color, transmissionType, brand, topSpeed] = parameters;
+        const [userName, passengerCapacity, pricePerDay, engine, color, transmissionType, state, brand, topSpeed] = parameters;
         if (isNaN(+passengerCapacity) || isNaN(+pricePerDay) || engine.length <= 0 ||
             color.length <= 0 || !(transmissionType.localeCompare('Automatic') ||
                 transmissionType.localeCompare('Manual')) || brand.length <= 0 || isNaN(+topSpeed)) {
@@ -31,7 +31,7 @@ export class CreateMotorcycle implements ICommand {
         }
 
         const motorcycle: IVehicle = this._factory
-            .createMotorcycle(+passengerCapacity, +pricePerDay, engine, color, transmissionType, brand, +topSpeed);
+        .createMotorcycle(+passengerCapacity, +pricePerDay, engine, color, transmissionType, state, brand, +topSpeed);
 
         this._travelDatabase.vehicles.push(motorcycle);
 

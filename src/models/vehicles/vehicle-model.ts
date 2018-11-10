@@ -28,6 +28,10 @@ export abstract class Vehicle implements IVehicle {
     return this._transmissionType;
   }
 
+  public get state(): string {
+    return this._state;
+  }
+
   protected static _minCapacity: number = 1;
 
   protected static _maxCapacity: number = 800;
@@ -49,6 +53,8 @@ export abstract class Vehicle implements IVehicle {
 
   private readonly _transmissionType: string;
 
+  private readonly _state: string;
+
   public constructor(
     passengerCapacity: number,
     pricePerDay: number,
@@ -56,6 +62,7 @@ export abstract class Vehicle implements IVehicle {
     engine: string,
     color: string,
     transmissionType: string,
+    state: string,
     brand: string
   ) {
 
@@ -69,6 +76,7 @@ export abstract class Vehicle implements IVehicle {
     this._engine = engine;
     this._color = color;
     this._transmissionType = transmissionType;
+    this._state = state;
     this._brand = brand;
   }
 

@@ -1,10 +1,10 @@
 import { IVehicle } from '../../../models';
+import { IUser } from '../../../models/contracts/user';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
-import { IModels, ITravelDatabase } from './../../contracts';
-import { TravelDatabase } from './../../travel-database';
-import { IUserDatabase, IUser } from '../../../models/contracts/user';
 import { UserDatabase } from '../../user-database';
+import { IModels, ITravelDatabase, IUserDatabase } from './../../contracts';
+import { TravelDatabase } from './../../travel-database';
 export class CreateBus implements ICommand {
 
   private _factory: IModels;
@@ -24,9 +24,9 @@ export class CreateBus implements ICommand {
         transmissionType.localeCompare('Manual')) || (brand.length <= 0) || isNaN(+busLength)) {
       throw new Error('Failed to parse CreateBus command parameters.');
     }
-    if(this._userDatabase.users.findIndex((user: IUser) => user.userName === userName) !== -1){
+    if (this._userDatabase.users.findIndex((user: IUser) => user.userName === userName) !== -1) {
       throw new Error('Failed to parse CreateUser command parameters. CUSTOM');
-  }if(this._userDatabase.users.findIndex((user: IUser) => user.userName === userName) !== -1){
+  }if (this._userDatabase.users.findIndex((user: IUser) => user.userName === userName) !== -1) {
     throw new Error('Failed to parse CreateUser command parameters. CUSTOM');
 }
 

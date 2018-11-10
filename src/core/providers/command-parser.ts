@@ -1,11 +1,16 @@
 import { ICommand } from '../contracts/command';
 import { ICommandParser } from '../contracts/parser';
 import { CommandFactory } from './travel-command-factory';
+import { injectable, inject } from 'inversify';
+import { TYPES } from '../common/types';
+import { ICommandFactory } from '../contracts';
+
+@injectable()
 export class CommandParser implements ICommandParser {
   private _commandFactory: CommandFactory;
 
-  constructor() {
-    this._commandFactory = new CommandFactory();
+  constructor(@inject(TYPES.Cfactory) commandFactory: ICommandFactory) {
+    this._commandFactory = commandFactory;
   }
 
   public parseCommand(line: string): ICommand {

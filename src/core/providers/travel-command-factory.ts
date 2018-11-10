@@ -1,6 +1,8 @@
 import * as commands from '../commands';
 import { ICommand, ICommandFactory } from '../contracts';
+import { injectable } from 'inversify';
 
+@injectable()
 export class CommandFactory implements ICommandFactory {
 
   public getCommand(className: string): ICommand {

@@ -4,7 +4,9 @@ import { Models } from '../../engine/models-factory';
 import { UserDatabase } from '../../user-database';
 import { IUser } from './../../../models/contracts/user';
 import { IModels } from './../../contracts/models-factory';
+import { injectable } from 'inversify';
 
+@injectable()
 export class CreateUser implements ICommand {
     private _factory: IModels;
     private _userDatabase: IUserDatabase;

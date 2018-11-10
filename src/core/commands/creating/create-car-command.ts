@@ -3,14 +3,17 @@ import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
 import { IModels, ITravelDatabase } from './../../contracts';
 import { TravelDatabase } from './../../travel-database';
+import { injectable, inject } from 'inversify';
+import { TYPES } from '../../common/types';
+
+@injectable()
 export class CreateCar implements ICommand {
 
   private _factory: IModels;
   private _travelDatabase: ITravelDatabase;
 
-  constructor() {
+  constructor(@inject(TYPES.database) _travelDatabase: ITravelDatabase) {
     this._factory = new Models();
-    this._travelDatabase = TravelDatabase.INSTANCE;
   }
 
   public execute(parameters: string[]): string {

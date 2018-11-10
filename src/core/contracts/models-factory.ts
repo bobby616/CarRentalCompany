@@ -9,17 +9,16 @@ export interface IModels {
     userName: string): IUser;
 
   createBus(passengerCapacity: number, pricePerDay: number, engine: string, color: string,
-    transmissionType: string, brand: string, busLength: number): IVehicle;
+    transmissionType: string, state: string, brand: string, busLength: number): IVehicle;
 
   createCar(passengerCapacity: number, pricePerDay: number, engine: string,
-    color: string, transmissionType: string, brand: string, topSpeed: number): IVehicle;
+    color: string, transmissionType: string, state: string, brand: string, topSpeed: number): IVehicle;
 
   createMotorcycle(passengerCapacity: number, pricePerDay: number, engine: string,
-    color: string, transmissionType: string, brand: string, topSpeed: number): IVehicle;
+    color: string, transmissionType: string, state: string, brand: string, topSpeed: number): IVehicle;
 
   createCaravan(passengerCapacity: number, pricePerDay: number, engine: string, color: string,
-    transmissionType: string, brand: string, livingArea: number, numberOfBeds: number, hasBathroom: boolean): IVehicle;
+    transmissionType: string, state: string, brand: string, livingArea: number, numberOfBeds: number, hasBathroom: boolean): IVehicle;
 
-  createRental(userName: string,
-    daysOfRental: number, vehicleId: IVehicle): IRental;
+  createRental(userName: string, daysOfRental: number, vehicleId: IVehicle): IRental;
 }

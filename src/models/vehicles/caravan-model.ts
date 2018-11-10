@@ -8,10 +8,10 @@ export class Caravan extends Vehicle implements ICaravan {
     public _hasBathroom: boolean;
 
     public constructor(passengerCapacity: number, pricePerDay: number, engine: string,
-        color: string, transmissionType: string, brand: string,  livingArea: number, numberOfBeds: number,
+        color: string, transmissionType: string, state: string, brand: string,  livingArea: number, numberOfBeds: number,
         hasBathroom: boolean) {
         super(passengerCapacity, pricePerDay, VehicleType.Caravan, engine, color,
-            transmissionType, brand);
+            transmissionType, state, brand);
         this._livingArea = livingArea;
         this._numberOfBeds = numberOfBeds;
         this._hasBathroom = hasBathroom;

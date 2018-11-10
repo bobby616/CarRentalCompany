@@ -6,8 +6,8 @@ export class Car extends Vehicle implements ICar {
     private readonly _topSpeed: number;
 
     public constructor(passengerCapacity: number, pricePerDay: number, engine: string,
-        color: string, transmissionType: string, brand: string, topSpeed: number) {
-        super(passengerCapacity, pricePerDay, VehicleType.Car, engine, color, transmissionType, brand);
+        color: string, transmissionType: string, state: string, brand: string, topSpeed: number) {
+        super(passengerCapacity, pricePerDay, VehicleType.Car, engine, color, transmissionType, state, brand);
         this._topSpeed = topSpeed;
     }
 

@@ -17,7 +17,7 @@ export class ListRentals implements ICommand {
     return `${
       this._travelDatabase.rentals.length === 0
         ? 'There are no registered rentals.'
-        : this._travelDatabase.rentals.map((journey: IRental) => journey.print()).join('\n####################\n')
+        : this._travelDatabase.rentals.map((rental: IRental) => rental.print()).join('\n####################\n')
       }`;
   }
 }

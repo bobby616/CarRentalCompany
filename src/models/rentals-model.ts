@@ -55,7 +55,7 @@ export class Rental implements IRental {
   public print(): string {
     return (
       `Rentals ----
-Client First Name: ${this.userName}
+Client UserName: ${this.userName}
 Duration of the rental: ${this.daysOfRental} days
 Vehicle type: ${VehicleType[this.vehicle.vehicleType]}
 Travel costs: ${this.calculateRentalCosts()} leva`);

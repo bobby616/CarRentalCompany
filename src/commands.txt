@@ -2,12 +2,12 @@
 // Different variations of example commands are given separated by an empty line. Feel free to comment and uncomment the commands you like to run.
 
 // car rental commands
-createuser asdfggh asdgsdf 159 1 adi1
+createuser asdfggh asdgsdf 159 0 adi1
 createuser asdfggh asdgsdf 159 1 adi11
-createbus 30 adi1 100 v8 blue Manual VolksWagen 10
-createcar 5 70 turbo green Automatic BMW 200
-createmotorcycle 2 30 turbo green Manual Mercedes 250
-createcaravan 10 200 v3 orange Automatic BMW 35 2 true
-createrental Pesho 2 0
-listvehicles
-listrentals
+createbus adi11 30 100 v8 blue Manual VolksWagen 10
+createcar adi11 5 70 turbo green Automatic BMW 200
+createmotorcycle adi11 2 30 turbo green Manual Mercedes 250
+createcaravan adi11 10 200 v3 orange Automatic BMW 35 2 true
+createrental adi1 2 0
+listvehicles adi11
+listrentals adi11

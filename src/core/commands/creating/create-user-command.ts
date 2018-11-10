@@ -17,10 +17,10 @@ export class CreateUser implements ICommand {
     public execute(parameters: string[]): string {
         const [userFirstName, userLastName, userAge, userType, userName] = parameters;
         if (userFirstName.length < 0 || userLastName.length < 0 || +userAge < 0 || +userType < 0) {
-            throw new Error('Failed to parse CreateUser command parameters. CUSTOM');
+            throw new Error('INVALID CreateUser command parameters.');
         }
         if (this._userDatabase.users.findIndex((currUser: IUser) => currUser.userName === userName) !== -1) {
-            throw new Error('Failed to parse CreateUser command parameters. CUSTOM');
+            throw new Error('THERE IS ALREADY A USER WITH THAT NAME');
         }
 
         const user: IUser = this._factory.createUser(userFirstName, userFirstName, +userAge, +userType, userName);

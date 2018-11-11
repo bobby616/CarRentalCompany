@@ -1,9 +1,11 @@
 import { IRental, IVehicle } from '../models';
 import { IUser } from '../models/contracts/user';
 import { ITravelDatabase } from './contracts/travel-database';
-export class TravelDatabase implements ITravelDatabase {
+import { injectable } from 'inversify';
 
-  private static readonly SINGLE_INSTANCE: ITravelDatabase = new TravelDatabase();
+@injectable()
+
+export class TravelDatabase implements ITravelDatabase {
 
   private readonly _vehicles: IVehicle[];
 
@@ -11,7 +13,7 @@ export class TravelDatabase implements ITravelDatabase {
 
   private readonly _users: IUser[];
 
-  private constructor() {
+  public constructor() {
     this._rentals = [];
     this._vehicles = [];
     this._users = [];
@@ -29,7 +31,4 @@ export class TravelDatabase implements ITravelDatabase {
     return this._users;
   }
 
-  public static get INSTANCE(): ITravelDatabase {
-    return this.SINGLE_INSTANCE;
-  }
 }

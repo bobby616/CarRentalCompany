@@ -5,4 +5,6 @@ export const TYPES: any = {
     reader: Symbol.for('FileReader'),
     parser: Symbol.for('CommandParser'),
     Cfactory: Symbol.for('CommandFactory'),
+    data: Symbol.for('TravelDatabase'),
+    models: Symbol.for('Models'),
 };

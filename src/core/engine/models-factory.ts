@@ -10,7 +10,9 @@ import { Car } from '../../models/vehicles/car-model';
 import { Caravan } from '../../models/vehicles/caravan-model';
 import { Motorcycle } from '../../models/vehicles/motorcycle-model';
 import { IModels } from '../contracts/models-factory';
+import { injectable } from 'inversify';
 
+@injectable()
 export class Models implements IModels {
 
   public createUser(userFirstName: string, userLastName: string, userAge: number, userType: number, userName: string): IUser {

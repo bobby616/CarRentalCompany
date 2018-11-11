@@ -1,9 +1,11 @@
 import { Container, interfaces } from 'inversify';
-import { ICommand, IEngine, IReader, ICommandParser, ICommandFactory } from '../contracts';
+import { ICommand, IEngine, IReader, ICommandParser, ICommandFactory, ITravelDatabase, IModels } from '../contracts';
 import { Engine } from '../engine';
 import { FileReader } from '../engine/file-reader';
 import { TYPES } from './types';
 import { CommandParser, CommandFactory } from '../providers';
+import { TravelDatabase } from '../travel-database';
+import { Models } from '../engine/models-factory';
 
 const container: Container = new Container();
 
@@ -16,5 +18,8 @@ container.bind<IEngine>(TYPES.engine).to(Engine);
 container.bind<IReader>(TYPES.reader).to(FileReader);
 container.bind<ICommandParser>(TYPES.parser).to(CommandParser);
 container.bind<ICommandFactory>(TYPES.Cfactory).to(CommandFactory);
+container.bind<ITravelDatabase>(TYPES.data).to(TravelDatabase).inSingletonScope();
+container.bind<IModels>(TYPES.models).to(Models);
+
 
 export { container };

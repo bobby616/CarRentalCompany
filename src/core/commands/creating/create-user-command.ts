@@ -4,14 +4,17 @@ import { IUser } from './../../../models/contracts/user';
 import { IModels } from './../../contracts/models-factory';
 import { ITravelDatabase } from './../../contracts/travel-database';
 import { TravelDatabase } from './../../travel-database';
-
+import { inject, injectable } from 'inversify';
+import { TYPES } from '../../common/types';
+@injectable()
 export class CreateUser implements ICommand {
     private _factory: IModels;
     private _travelDatabase: ITravelDatabase;
 
-    constructor() {
-        this._factory = new Models();
-        this._travelDatabase = TravelDatabase.INSTANCE;
+    constructor(@inject(TYPES.data) data: ITravelDatabase,
+    @inject(TYPES.models) factory: IModels) {
+        this._factory = factory;
+        this._travelDatabase = data;
     }
 
     public execute(parameters: string[]): string {

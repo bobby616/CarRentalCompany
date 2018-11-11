@@ -12,7 +12,7 @@ export class CreateUser implements ICommand {
     private _travelDatabase: ITravelDatabase;
 
     constructor(@inject(TYPES.data) data: ITravelDatabase,
-    @inject(TYPES.models) factory: IModels) {
+        @inject(TYPES.models) factory: IModels) {
         this._factory = factory;
         this._travelDatabase = data;
     }
@@ -26,7 +26,7 @@ export class CreateUser implements ICommand {
             throw new Error('THERE IS ALREADY A USER WITH THAT NAME');
         }
 
-        const user: IUser = this._factory.createUser(userFirstName, userFirstName, +userAge, +userType, userName);
+        const user: IUser = this._factory.createUser(userFirstName, userLastName, +userAge, +userType, userName);
 
         this._travelDatabase.users.push(user);
 

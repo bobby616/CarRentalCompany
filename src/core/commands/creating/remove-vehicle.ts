@@ -1,4 +1,3 @@
-import { IRental } from '../../../models';
 import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';

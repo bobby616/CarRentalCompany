@@ -1,4 +1,5 @@
 import { IRental, IVehicle } from '../models';
+import { IUser } from '../models/contracts/user';
 import { ITravelDatabase } from './contracts/travel-database';
 export class TravelDatabase implements ITravelDatabase {
 
@@ -8,9 +9,12 @@ export class TravelDatabase implements ITravelDatabase {
 
   private readonly _rentals: IRental[];
 
+  private readonly _users: IUser[];
+
   private constructor() {
     this._rentals = [];
     this._vehicles = [];
+    this._users = [];
   }
 
   public get vehicles(): IVehicle[] {
@@ -19,6 +23,10 @@ export class TravelDatabase implements ITravelDatabase {
 
   public get rentals(): IRental[] {
     return this._rentals;
+  }
+
+  public get users(): IUser[] {
+    return this._users;
   }
 
   public static get INSTANCE(): ITravelDatabase {

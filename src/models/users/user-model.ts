@@ -19,6 +19,16 @@ userName: string
     this._userName = userName;
   }
 
+  public print(): string {
+    return (
+      `Users ----
+User First Name: ${this.userFirstName}
+User Last name: ${this.userLastName}
+User Age: ${this.userAge}
+User Type: ${this.userType}
+Username: ${this.userName}`);
+  }
+
   public get userFirstName() : string {
     return this._userFirstName;
   }
@@ -50,15 +60,4 @@ userName: string
       throw new Error('User must be 18 years or older.');
     }
   }
-
-  public print(): string {
-    return (
-      `Users ----
-User First Name: ${this.userFirstName}
-User Last name: ${this.userLastName}
-User Age: ${this.userAge}
-User Type: ${this.userType}
-Username: ${this.userName}`);
-  }
-
 }

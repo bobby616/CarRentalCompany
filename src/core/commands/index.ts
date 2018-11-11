@@ -7,4 +7,4 @@ export * from './creating/create-car-command';
 export * from './creating/create-caravan-command';
 export * from './creating/create-motorcycle-command';
 export * from './creating/list-users-command';
-
+export * from './creating/remove-vehicle';

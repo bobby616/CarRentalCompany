@@ -2,19 +2,16 @@ import { IVehicle } from '../../../models';
 import { IUser } from '../../../models/contracts/user';
 import { ICommand } from '../../contracts/command';
 import { Models } from '../../engine/models-factory';
-import { UserDatabase } from '../../user-database';
-import { IModels, ITravelDatabase, IUserDatabase } from './../../contracts';
+import { IModels, ITravelDatabase } from './../../contracts';
 import { TravelDatabase } from './../../travel-database';
 export class CreateBus implements ICommand {
 
   private _factory: IModels;
   private _travelDatabase: ITravelDatabase;
-  private _userDatabase: IUserDatabase;
 
   constructor() {
     this._factory = new Models();
     this._travelDatabase = TravelDatabase.INSTANCE;
-    this._userDatabase = UserDatabase.INSTANCE;
   }
 
   public execute(parameters: string[]): string {
@@ -24,10 +21,10 @@ export class CreateBus implements ICommand {
         transmissionType.localeCompare('Manual')) || (state.length <= 0) || (brand.length <= 0) || isNaN(+busLength)) {
       throw new Error('Failed to parse CreateBus command parameters.');
     }
-    if (this._userDatabase.users.findIndex((currUser: IUser) => currUser.userName === userName) === -1) {
+    if (this._travelDatabase.users.findIndex((currUser: IUser) => currUser.userName === userName) === -1) {
       throw new Error('THERE IS NO SUCH USER');
     }
-    if (this._userDatabase.users.find((user: IUser) => user.userName === userName).userType === 0) {
+    if (this._travelDatabase.users.find((user: IUser) => user.userName === userName).userType === 0) {
       throw new Error('THE USER DOESN"T HAVE PERMISSION TO DO THAT');
     }
 

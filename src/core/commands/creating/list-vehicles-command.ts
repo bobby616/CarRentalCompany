@@ -1,11 +1,9 @@
+import { inject, injectable } from 'inversify';
 import { IVehicle } from '../../../models';
 import { IUser } from '../../../models/contracts/user';
+import { TYPES } from '../../common/types';
 import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
-import { Models } from '../../engine/models-factory';
-import { TravelDatabase } from '../../travel-database';
-import { inject, injectable } from 'inversify';
-import { TYPES } from '../../common/types';
 
 @injectable()
 export class ListVehicles implements ICommand {
@@ -25,13 +23,24 @@ export class ListVehicles implements ICommand {
       throw new Error('THERE IS NO SUCH USER!!');
   }
     if (this._travelDatabase.users.find((user: IUser) => user.userName === userName).userType === 0) {
-      throw new Error('THE USER DOESN"T HAVE PERMISSION TO DO THAT');
-    }
 
     return `${
       this._travelDatabase.vehicles.length === 0
         ? 'There are no registered vehicles.'
-        : this._travelDatabase.vehicles.map((vehicle: IVehicle) => vehicle.print()).join('\n####################\n')
+        : this._travelDatabase.vehicles
+        .map((vehicle: IVehicle) => vehicle.print())
+        .join('\n####################\n')
       }`;
+    } else {
+      return `${
+        this._travelDatabase.vehicles.length === 0
+          ? 'There are no registered vehicles.'
+          : this._travelDatabase.vehicles
+          .filter((veh: IVehicle) => veh.state === 'available')
+          .map((vehicle: IVehicle) => vehicle.print())
+          .join('\n####################\n')
+        }`;
+    }
+
   }
 }

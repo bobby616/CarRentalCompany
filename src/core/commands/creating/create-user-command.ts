@@ -1,11 +1,9 @@
+import { inject, injectable } from 'inversify';
+import { TYPES } from '../../common/types';
 import { ICommand } from '../../contracts/command';
-import { Models } from '../../engine/models-factory';
 import { IUser } from './../../../models/contracts/user';
 import { IModels } from './../../contracts/models-factory';
 import { ITravelDatabase } from './../../contracts/travel-database';
-import { TravelDatabase } from './../../travel-database';
-import { inject, injectable } from 'inversify';
-import { TYPES } from '../../common/types';
 @injectable()
 export class CreateUser implements ICommand {
     private _factory: IModels;

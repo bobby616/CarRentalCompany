@@ -1,7 +1,7 @@
+import { injectable } from 'inversify';
 import { IRental, IVehicle } from '../models';
 import { IUser } from '../models/contracts/user';
 import { ITravelDatabase } from './contracts/travel-database';
-import { injectable } from 'inversify';
 
 @injectable()
 

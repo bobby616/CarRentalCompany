@@ -1,9 +1,9 @@
+import { inject, injectable } from 'inversify';
 import * as commands from '../commands';
-import { ICommand, ICommandFactory, ITravelDatabase, IModels } from '../contracts';
-import { injectable, inject } from 'inversify';
 import { TYPES } from '../common/types';
-import { TravelDatabase } from '../travel-database';
+import { ICommand, ICommandFactory, IModels, ITravelDatabase } from '../contracts';
 import { Models } from '../engine/models-factory';
+import { TravelDatabase } from '../travel-database';
 
 @injectable()
 export class CommandFactory implements ICommandFactory {
@@ -12,7 +12,7 @@ export class CommandFactory implements ICommandFactory {
   private readonly _modelsFactory: IModels;
   private readonly _commands: Map<string, new (data: ITravelDatabase, factory: IModels) => ICommand>;
 
-  public constructor(@inject(TYPES.data) data: ITravelDatabase, 
+  public constructor(@inject(TYPES.data) data: ITravelDatabase,
   @inject(TYPES.models) factory: IModels) {
     this._data = data;
     this._modelsFactory = factory;

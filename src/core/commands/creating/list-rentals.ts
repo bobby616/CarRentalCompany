@@ -1,11 +1,9 @@
+import { inject, injectable } from 'inversify';
 import { IRental } from '../../../models/contracts/rental';
 import { IUser } from '../../../models/contracts/user';
+import { TYPES } from '../../common/types';
 import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
-import { Models } from '../../engine/models-factory';
-import { TravelDatabase } from '../../travel-database';
-import { inject, injectable } from 'inversify';
-import { TYPES } from '../../common/types';
 @injectable()
 export class ListRentals implements ICommand {
 

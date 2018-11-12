@@ -6,5 +6,5 @@ export const TYPES: any = {
     parser: Symbol.for('CommandParser'),
     Cfactory: Symbol.for('CommandFactory'),
     data: Symbol.for('TravelDatabase'),
-    models: Symbol.for('Models'),
+    models: Symbol.for('Models')
 };

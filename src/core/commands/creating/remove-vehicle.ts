@@ -1,10 +1,8 @@
+import { inject, injectable } from 'inversify';
+import { IUser } from '../../../models/contracts/user';
+import { TYPES } from '../../common/types';
 import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
-import { Models } from '../../engine/models-factory';
-import { TravelDatabase } from '../../travel-database';
-import { inject, injectable } from 'inversify';
-import { TYPES } from '../../common/types';
-import { IUser } from '../../../models/contracts/user';
 
 @injectable()
 export class RemoveVehicle implements ICommand {

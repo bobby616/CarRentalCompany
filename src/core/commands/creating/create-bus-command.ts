@@ -1,11 +1,9 @@
+import { inject, injectable } from 'inversify';
 import { IVehicle } from '../../../models';
 import { IUser } from '../../../models/contracts/user';
-import { ICommand } from '../../contracts/command';
-import { Models } from '../../engine/models-factory';
-import { IModels, ITravelDatabase } from './../../contracts';
-import { TravelDatabase } from './../../travel-database';
-import { injectable, inject } from 'inversify';
 import { TYPES } from '../../common/types';
+import { ICommand } from '../../contracts/command';
+import { IModels, ITravelDatabase } from './../../contracts';
 @injectable()
 export class CreateBus implements ICommand {
 

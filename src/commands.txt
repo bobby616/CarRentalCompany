@@ -12,5 +12,7 @@ removevehicle Muci 0
 createmotorcycle adi11 2 30 turbo green Manual available Mercedes 250
 createcaravan adi11 10 200 v3 orange Automatic available BMW 35 2 true
 createrental adi1 2 0
+createrental adi1 4 1
 listvehicles Muci
+listvehicles adi1
 listrentals adi1

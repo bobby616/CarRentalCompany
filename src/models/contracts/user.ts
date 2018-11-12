@@ -4,5 +4,5 @@ export interface IUser {
   userAge: number;
   userType: number;
   userName: string;
-  print(): string
+  print(): string;
 }

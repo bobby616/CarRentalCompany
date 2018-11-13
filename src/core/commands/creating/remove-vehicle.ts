@@ -29,7 +29,7 @@ export class RemoveVehicle implements ICommand {
             throw new Error('THE USER DOESN"T HAVE PERMISSION TO DO THAT');
         }
 
-        const vehicleToRemove = this._travelDatabase.vehicles[+vehicleId];
+        // Const vehicleToRemove = this._travelDatabase.vehicles[+vehicleId];
         this._travelDatabase.vehicles.splice(+vehicleId, 1);
 
         // tslint:disable-next-line:max-line-length

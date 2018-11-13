@@ -5,12 +5,12 @@
 createuser asdfggh asdgsdf 159 1 adi11
 createuser yes baby 159 1 Muci
 // listusers Muci
-createbus adi11 30 100 v8 blue Manual available VolksWagen 10
-createcar adi11 5 70 turbo green Automatic available BMW 200
-createcar adi11 5 73 turbo green Automatic available BMW 200
-createcar adi11 5 72 turbo green Automatic available BMW 200
-removevehicle Muci 0
-createcar adi11 5 74 turbo green Automatic available BMW 200
+// createbus adi11 30 100 v8 blue Manual available VolksWagen 10
+// createcar adi11 5 70 turbo green Automatic available BMW 200
+// createcar adi11 5 73 turbo green Automatic available BMW 200
+// createcar adi11 5 72 turbo green Automatic available BMW 200
+// removevehicle Muci 0
+// createcar adi11 5 74 turbo green Automatic available BMW 200
 // createmotorcycle adi11 2 30 turbo green Manual available Mercedes 250
 // createcaravan adi11 10 200 v3 orange Automatic available BMW 35 2 true
 // createrental adi1 2 0
@@ -20,7 +20,7 @@ createcar adi11 5 74 turbo green Automatic available BMW 200
 // listrentals adi1
 // listusers Muci
 // createbus adi11 30 100 v8 blue Manual VolksWagen 10
-// createcar adi11 5 70 turbo green Automatic BMW 200
+createcar adi11 5 70 turbo green Automatic BMW 200
 // removevehicle Muci 0
 // createmotorcycle adi11 2 30 turbo green Manual Mercedes 250
 // createcaravan adi11 10 200 v3 orange Automatic BMW 35 2 true

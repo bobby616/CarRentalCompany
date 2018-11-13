@@ -19,21 +19,21 @@ export class Models implements IModels {
     return new User(userFirstName, userLastName, userAge, userType, userName);
   }
   public createCar(passengerCapacity: number, pricePerDay: number, engine: string, color: string,
-    transmissionType: string, state: string, brand: string, topSpeed: number): IVehicle {
-    return new Car(passengerCapacity, pricePerDay, engine, color, transmissionType, state, brand, topSpeed);
+    transmissionType: string, brand: string, topSpeed: number): IVehicle {
+    return new Car(passengerCapacity, pricePerDay, engine, color, transmissionType, brand, topSpeed);
   }
   public createMotorcycle(passengerCapacity: number, pricePerDay: number, engine: string, color: string,
-    transmissionType: string, state: string, brand: string, topSpeed: number): IVehicle {
-    return new Motorcycle(passengerCapacity, pricePerDay, engine, color, transmissionType, state, brand, topSpeed);
+    transmissionType: string, brand: string, topSpeed: number): IVehicle {
+    return new Motorcycle(passengerCapacity, pricePerDay, engine, color, transmissionType, brand, topSpeed);
   }
   public createCaravan(passengerCapacity: number, pricePerDay: number, engine: string, color: string,
-    transmissionType: string, state: string, brand: string, livingArea: number, numberOfBeds: number, hasBathroom: boolean): IVehicle {
+    transmissionType: string, brand: string, livingArea: number, numberOfBeds: number, hasBathroom: boolean): IVehicle {
     return new Caravan(passengerCapacity, pricePerDay, engine,
-      color, transmissionType, state, brand, livingArea, numberOfBeds, hasBathroom);
+      color, transmissionType, brand, livingArea, numberOfBeds, hasBathroom);
   }
   public createBus(passengerCapacity: number, pricePerDay: number, engine: string, color: string,
-    transmissionType: string, state: string, brand: string, busLength: number): IVehicle {
-    return new Bus(passengerCapacity, pricePerDay, engine, color, transmissionType, state, brand, busLength);
+    transmissionType: string, brand: string, busLength: number): IVehicle {
+    return new Bus(passengerCapacity, pricePerDay, engine, color, transmissionType, brand, busLength);
   }
   public createRental(userName: string,
     daysOfRental: number, vehicleId: IVehicle): IRental {

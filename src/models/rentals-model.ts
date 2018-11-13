@@ -54,11 +54,10 @@ export class Rental implements IRental {
 
   public print(): string {
     return (
-      `Rentals ----
+      `----
 Client UserName: ${this.userName}
 Duration of the rental: ${this.daysOfRental} days
 Vehicle type: ${VehicleType[this.vehicle.vehicleType]}
-Vehicle availability: ${this.vehicle.state}
 Travel costs: ${this.calculateRentalCosts()} leva`);
   }
 }

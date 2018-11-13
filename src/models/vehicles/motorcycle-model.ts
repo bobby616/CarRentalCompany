@@ -19,7 +19,8 @@ export class Motorcycle extends Vehicle implements IMotor {
     public print(): string {
         return (
             `Motorcycle----
-    ${super.print()} Maximum speed of the motorcycle: ${this.topSpeed}`
+    ${super.print()}
+    Maximum speed of the motorcycle: ${this.topSpeed}`
         );
     }
 

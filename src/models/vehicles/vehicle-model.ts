@@ -1,4 +1,4 @@
-
+import { Availability } from './common/availability';
 import { VehicleType } from './common/vehicle-type';
 import { IVehicle } from './contracts/vehicle';
 
@@ -28,14 +28,12 @@ export abstract class Vehicle implements IVehicle {
     return this._transmissionType;
   }
 
-  public get state(): string {
+  public get state(): Availability {
     return this._state;
   }
 
-  public set state(val: string) {
-    if (val.length > 0) {
+  public set state(val: Availability) {
       this._state = val;
-    }
   }
   protected static _minCapacity: number = 1;
 
@@ -58,7 +56,7 @@ export abstract class Vehicle implements IVehicle {
 
   private readonly _transmissionType: string;
 
-  private _state: string = 'available';
+  private _state: Availability = Availability.Available;
 
   public constructor(
     passengerCapacity: number,
@@ -87,7 +85,8 @@ export abstract class Vehicle implements IVehicle {
     return (
       `Passenger capacity: ${this.passengerCapacity}
     Rental price per day: ${this.pricePerDay}
-    Vehicle type: ${VehicleType[this.vehicleType]}`
+    Vehicle type: ${VehicleType[this.vehicleType]}
+    Availability: ${Availability[this._state]}`
     );
   }
 

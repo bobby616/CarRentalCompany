@@ -28,7 +28,8 @@ export class ListUsers implements ICommand {
         return `${
             this._travelDatabase.users.length === 0
                 ? 'There are no registered users.'
-                : this._travelDatabase.users.map((user: IUser) => user.print()).join('\n####################\n')
+                : `Users:
+${this._travelDatabase.users.map((user: IUser) => user.print()).join('\n')}\n####################`
             }`;
     }
 }

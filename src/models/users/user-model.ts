@@ -21,7 +21,7 @@ userName: string
 
   public print(): string {
     return (
-      `Users ----
+      `----
 User First Name: ${this.userFirstName}
 User Last name: ${this.userLastName}
 User Age: ${this.userAge}

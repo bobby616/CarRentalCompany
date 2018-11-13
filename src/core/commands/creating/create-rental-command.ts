@@ -4,6 +4,7 @@ import { IUser } from '../../../models/contracts/user';
 import { TYPES } from '../../common/types';
 import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
+import { Availability } from './../../../models/vehicles/common/availability';
 
 @injectable()
 export class CreateRental implements ICommand {
@@ -30,7 +31,7 @@ export class CreateRental implements ICommand {
       throw new Error('THE USER DOESN"T HAVE PERMISSION TO DO THAT');
     }
 
-    this._travelDatabase.vehicles[+vehicleId].state = 'rented';
+    this._travelDatabase.vehicles[+vehicleId].state = Availability.Rented;
 
     const rental: IRental = this._factory
       .createRental(userName, +daysOfRental, this._travelDatabase.vehicles[+vehicleId]);

@@ -58,7 +58,7 @@ export abstract class Vehicle implements IVehicle {
 
   private readonly _transmissionType: string;
 
-  private _state: string;
+  private _state: string = 'available';
 
   public constructor(
     passengerCapacity: number,
@@ -67,7 +67,6 @@ export abstract class Vehicle implements IVehicle {
     engine: string,
     color: string,
     transmissionType: string,
-    state: string,
     brand: string
   ) {
 
@@ -81,7 +80,6 @@ export abstract class Vehicle implements IVehicle {
     this._engine = engine;
     this._color = color;
     this._transmissionType = transmissionType;
-    this._state = state;
     this._brand = brand;
   }
 

@@ -14,32 +14,6 @@
       "protocol": "inspector",
     },
     {
-      "type": "node",
-      "request": "launch",
-      "name": "jasmine-ts tests",
-      "program": "${workspaceFolder}/node_modules/jasmine-ts/lib/index.js",
-      "args": [
-        "./spec/**/*.spec.ts",
-      ],
-      "stopOnEntry": false,
-      "cwd": "${workspaceRoot}",
-      "protocol": "inspector",
-      "outputCapture": "std"
-    },
-    {
-      "type": "chrome",
-      "request": "attach",
-      "name": "Attach Karma Chrome",
-      "address": "localhost",
-      "port": 9333,
-      "sourceMaps": true,
-      "webRoot": "${workspaceRoot}",
-      "pathMapping": {
-        "/": "${workspaceRoot}",
-        "/base/": "${workspaceRoot}"
-      }
-    },
-    {
       "name": "Launch Chrome",
       "type": "chrome",
       "request": "launch",

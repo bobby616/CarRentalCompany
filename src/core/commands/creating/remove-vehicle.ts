@@ -25,8 +25,9 @@ export class RemoveVehicle implements ICommand {
             throw new Error('THE USER DOESN"T HAVE PERMISSION TO DO THAT');
         }
 
+        const vehicleToRemove = this._travelDatabase.vehicles[+vehicleId];
         this._travelDatabase.vehicles.splice(+vehicleId, 1);
 
-        return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} with ID ${+vehicleId}  was removed by ${userName}.`;
+        return `Vehicle ${vehicleToRemove.vehicleType} with ${+vehicleId} was removed by ${userName}.`;
     }
 }

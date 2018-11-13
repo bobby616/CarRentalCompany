@@ -6,9 +6,9 @@ export class Motorcycle extends Vehicle implements IMotor {
     private readonly _topSpeed: number;
 
     public constructor(passengerCapacity: number, pricePerDay: number, engine: string,
-        color: string, transmissionType: string, state: string, brand: string, topSpeed: number) {
+        color: string, transmissionType: string, brand: string, topSpeed: number) {
         super(passengerCapacity, pricePerDay, VehicleType.Motorcycle, engine,
-            color, transmissionType, state, brand);
+            color, transmissionType, brand);
         this._topSpeed = topSpeed;
     }
 
@@ -19,7 +19,8 @@ export class Motorcycle extends Vehicle implements IMotor {
     public print(): string {
         return (
             `Motorcycle----
-    ${super.print()} Maximum speed of the motorcycle: ${this.topSpeed}`
+    ${super.print()}
+    Maximum speed of the motorcycle: ${this.topSpeed}`
         );
     }
 

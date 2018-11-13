@@ -3,7 +3,6 @@ import { TYPES } from '../common/types';
 import { ICommandFactory } from '../contracts';
 import { ICommand } from '../contracts/command';
 import { ICommandParser } from '../contracts/parser';
-import { CommandFactory } from './travel-command-factory';
 
 @injectable()
 export class CommandParser implements ICommandParser {

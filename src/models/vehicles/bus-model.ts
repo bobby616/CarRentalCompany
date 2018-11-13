@@ -11,11 +11,12 @@ export class Bus extends Vehicle implements IBus {
   protected static _minCapacity: number = 10;
 
   protected static _maxCapacity: number = 50;
+  
   private readonly _busLength: number;
 
   public constructor(passengerCapacity: number, pricePerDay: number, engine: string,
-    color: string, transmissionType: string, state: string, brand: string, busLength: number) {
-    super(passengerCapacity, pricePerDay, VehicleType.Bus, engine, color, transmissionType, state, brand);
+    color: string, transmissionType: string, brand: string, busLength: number) {
+    super(passengerCapacity, pricePerDay, VehicleType.Bus, engine, color, transmissionType, brand);
     this._busLength = busLength;
   }
 

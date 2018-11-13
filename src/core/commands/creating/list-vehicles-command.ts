@@ -4,6 +4,7 @@ import { IUser } from '../../../models/contracts/user';
 import { TYPES } from '../../common/types';
 import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
+import { Availability } from './../../../models/vehicles/common/availability';
 
 @injectable()
 export class ListVehicles implements ICommand {
@@ -27,18 +28,20 @@ export class ListVehicles implements ICommand {
     return `${
       this._travelDatabase.vehicles.length === 0
         ? 'There are no registered vehicles.'
-        : this._travelDatabase.vehicles
+        : `Vehicles:
+${this._travelDatabase.vehicles
         .map((vehicle: IVehicle) => vehicle.print())
-        .join('\n####################\n')
+        .join('\n')}\n####################`
       }`;
     } else {
       return `${
         this._travelDatabase.vehicles.length === 0
           ? 'There are no registered vehicles.'
-          : this._travelDatabase.vehicles
-          .filter((veh: IVehicle) => veh.state === 'available')
+          : `Vehicles:
+${this._travelDatabase.vehicles
+          .filter((veh: IVehicle) => veh.state === Availability.Available)
           .map((vehicle: IVehicle) => vehicle.print())
-          .join('\n####################\n')
+          .join('\n')}\n####################`
         }`;
     }
 

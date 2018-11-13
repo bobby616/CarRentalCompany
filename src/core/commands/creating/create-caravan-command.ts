@@ -19,8 +19,8 @@ export class CreateCaravan implements ICommand {
   }
 
   public execute(parameters: string[]): string {
-    const [userName, passengerCapacity, pricePerDay, engine, color, transmissionType,
-      state, brand, livingArea, numberOfBeds, hasBathroom] = parameters;
+    const [userName, passengerCapacity, pricePerDay, engine, color, transmissionType
+      , brand, livingArea, numberOfBeds, hasBathroom] = parameters;
 
     if (isNaN(+passengerCapacity) || isNaN(+pricePerDay) || engine.length <= 0 ||
       color.length <= 0 || !(transmissionType.localeCompare('Automatic') ||
@@ -36,7 +36,7 @@ export class CreateCaravan implements ICommand {
     }
 
     const caravan: IVehicle = this._factory.createCaravan(+passengerCapacity, +pricePerDay, engine,
-      color, transmissionType, state, brand, +livingArea, +numberOfBeds, Boolean(hasBathroom));
+      color, transmissionType, brand, +livingArea, +numberOfBeds, Boolean(hasBathroom));
 
     this._travelDatabase.vehicles.push(caravan);
 

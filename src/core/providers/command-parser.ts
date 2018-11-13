@@ -7,7 +7,7 @@ import { CommandFactory } from './travel-command-factory';
 
 @injectable()
 export class CommandParser implements ICommandParser {
-  private _commandFactory: CommandFactory;
+  private _commandFactory: ICommandFactory;
 
   constructor(@inject(TYPES.Cfactory) commandFactory: ICommandFactory) {
     this._commandFactory = commandFactory;

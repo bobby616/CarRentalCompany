@@ -1,8 +1,12 @@
 import { inject, injectable } from 'inversify';
+import { CreateBus } from '..';
 import { IUser } from '../../../models/contracts/user';
 import { TYPES } from '../../common/types';
 import { IModels, ITravelDatabase } from '../../contracts';
 import { ICommand } from '../../contracts/command';
+import { CreateCar } from './create-car-command';
+import { CreateCaravan } from './create-caravan-command';
+import { CreateMotorcycle } from './create-motorcycle-command';
 
 @injectable()
 export class RemoveVehicle implements ICommand {
@@ -27,6 +31,19 @@ export class RemoveVehicle implements ICommand {
 
         this._travelDatabase.vehicles.splice(+vehicleId, 1);
 
-        return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} with ID ${+vehicleId}  was removed by ${userName}.`;
+        // tslint:disable-next-line:max-line-length
+        if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Car') {
+            // tslint:disable-next-line:max-line-length
+            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} with ID ${CreateCar._countCars} was removed by ${userName}.`;
+        } else if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Bus') {
+            // tslint:disable-next-line:max-line-length
+            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} with ID ${CreateBus._countBuses} was removed by ${userName}.`;
+        } else if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Bus') {
+            // tslint:disable-next-line:max-line-length
+            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} with ID ${CreateCaravan._countCaravans} was removed by ${userName}.`;
+        } else if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Bus') {
+            // tslint:disable-next-line:max-line-length
+            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} with ID ${CreateMotorcycle._countMotorcycles} was removed by ${userName}.`;
+        }
     }
 }

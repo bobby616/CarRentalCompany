@@ -6,14 +6,15 @@ import { ICommand } from '../../contracts/command';
 import { IModels, ITravelDatabase } from './../../contracts';
 @injectable()
 export class CreateCar implements ICommand {
-
+  public static _countCars: number = 0;
   private _factory: IModels;
   private _travelDatabase: ITravelDatabase;
 
   constructor(@inject(TYPES.data) data: ITravelDatabase,
-  @inject(TYPES.models) factory: IModels) {
+    @inject(TYPES.models) factory: IModels) {
     this._factory = factory;
     this._travelDatabase = data;
+    CreateCar._countCars += 1;
   }
 
   public execute(parameters: string[]): string {
@@ -34,6 +35,6 @@ export class CreateCar implements ICommand {
 
     this._travelDatabase.vehicles.push(car);
 
-    return `Vehicle with ID ${this._travelDatabase.vehicles.length - 1} was created.`;
+    return `Car with ID ${CreateCar._countCars} was created.`;
   }
 }

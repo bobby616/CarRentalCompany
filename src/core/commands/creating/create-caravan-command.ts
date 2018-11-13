@@ -7,14 +7,15 @@ import { IModels, ITravelDatabase } from './../../contracts';
 
 @injectable()
 export class CreateCaravan implements ICommand {
-
+  public static _countCaravans: number = 0;
   private _factory: IModels;
   private _travelDatabase: ITravelDatabase;
 
   constructor(@inject(TYPES.data) data: ITravelDatabase,
-  @inject(TYPES.models) factory: IModels) {
+    @inject(TYPES.models) factory: IModels) {
     this._factory = factory;
     this._travelDatabase = data;
+    CreateCaravan._countCaravans += 1;
   }
 
   public execute(parameters: string[]): string {
@@ -39,6 +40,6 @@ export class CreateCaravan implements ICommand {
 
     this._travelDatabase.vehicles.push(caravan);
 
-    return `Vehicle with ID ${this._travelDatabase.vehicles.length - 1} was created.`;
+    return `Caravan with ID ${CreateCaravan._countCaravans} was created.`;
   }
 }

@@ -1,4 +1,5 @@
 import { VehicleType } from '../common/vehicle-type';
+import { injectable } from 'inversify';
 
 export interface IVehicle {
   brand: string;

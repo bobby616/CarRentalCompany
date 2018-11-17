@@ -8,13 +8,9 @@ import { Availability } from './../../../models/vehicles/common/availability';
 
 @injectable()
 export class ListVehicles implements ICommand {
-
-  private _factory: IModels;
   private _travelDatabase: ITravelDatabase;
 
-  constructor(@inject(TYPES.data) data: ITravelDatabase,
-  @inject(TYPES.models) factory: IModels) {
-    this._factory = factory;
+  constructor(@inject(TYPES.data) data: ITravelDatabase) {
     this._travelDatabase = data;
   }
 
@@ -23,8 +19,8 @@ export class ListVehicles implements ICommand {
     if (this._travelDatabase.users.findIndex((currUser: IUser) => currUser.userName === userName) === -1) {
       throw new Error('THERE IS NO SUCH USER!!');
   }
-    if (this._travelDatabase.users.find((user: IUser) => user.userName === userName).userType === 0) {
 
+    if (this._travelDatabase.users.find((user: IUser) => user.userName === userName).userType === 0) {
     return `${
       this._travelDatabase.vehicles.length === 0
         ? 'There are no registered vehicles.'

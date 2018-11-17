@@ -7,12 +7,9 @@ import { ICommand } from '../../contracts/command';
 @injectable()
 export class RemoveVehicle implements ICommand {
 
-    private _factory: IModels;
     private _travelDatabase: ITravelDatabase;
 
-    constructor(@inject(TYPES.data) data: ITravelDatabase,
-        @inject(TYPES.models) factory: IModels) {
-        this._factory = factory;
+    constructor(@inject(TYPES.data) data: ITravelDatabase,) {
         this._travelDatabase = data;
     }
 

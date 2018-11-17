@@ -3,7 +3,8 @@ import { IVehicle } from '../../../models';
 import { IUser } from '../../../models/contracts/user';
 import { TYPES } from '../../common/types';
 import { ICommand } from '../../contracts/command';
-import { IModels, ITravelDatabase } from './../../contracts';
+import { IModels, ITravelDatabase} from './../../contracts';
+
 @injectable()
 export class CreateBus implements ICommand {
 

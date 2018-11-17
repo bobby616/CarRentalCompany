@@ -7,14 +7,15 @@ import { IModels, ITravelDatabase } from './../../contracts';
 
 @injectable()
 export class CreateMotorcycle implements ICommand {
-
+    public static _countMotorcycles: number = 0;
     private _factory: IModels;
     private _travelDatabase: ITravelDatabase;
 
     constructor(@inject(TYPES.data) data: ITravelDatabase,
-    @inject(TYPES.models) factory: IModels) {
+        @inject(TYPES.models) factory: IModels) {
         this._factory = factory;
         this._travelDatabase = data;
+        CreateMotorcycle._countMotorcycles += 1;
     }
 
     public execute(parameters: string[]): string {
@@ -31,10 +32,10 @@ export class CreateMotorcycle implements ICommand {
         }
 
         const motorcycle: IVehicle = this._factory
-        .createMotorcycle(+passengerCapacity, +pricePerDay, engine, color, transmissionType, brand, +topSpeed);
+            .createMotorcycle(+passengerCapacity, +pricePerDay, engine, color, transmissionType, brand, +topSpeed);
 
         this._travelDatabase.vehicles.push(motorcycle);
 
-        return `Vehicle with ID ${this._travelDatabase.vehicles.length - 1} was created.`;
+        return `Motorcycle with ID ${CreateMotorcycle._countMotorcycles} was created.`;
     }
 }

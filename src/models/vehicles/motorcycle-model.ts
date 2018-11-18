@@ -24,11 +24,9 @@ export class Motorcycle extends Vehicle implements IMotor {
         );
     }
 
-    public validatePassengerCapacity (passengerCapacity: number): void {
+    public validatePassengerCapacity(passengerCapacity: number): void {
         if (passengerCapacity < 0 || passengerCapacity > 4) {
-            throw new Error(
-                `A motorcycle cannot have less than 0 passengers or more than 4 passengers.`
-            );
+            throw new Error(`A motorcycle cannot have less than 0 passengers or more than 4 passengers.`);
         }
     }
 

@@ -22,12 +22,13 @@ createuser yes baby 159 1 Muci
 // createbus adi11 30 100 v8 blue Manual VolksWagen 10
 createcar adi11 5 70 turbo green Automatic BMW 200
 createcar adi11 5 72 turbo green Automatic BMW 200
-createcar adi11 5 74 turbo green Automatic BMW 200
-createcar adi11 5 78 turbo green Automatic BMW 200
+// createcar adi11 5 74 turbo green Automatic BMW 200
+// createcar adi11 5 78 turbo green Automatic BMW 200
 removevehicle Muci 0
 createcar adi11 5 71 turbo green Automatic BMW 200
 createcar adi11 5 69 turbo green Automatic BMW 200
-// createmotorcycle adi11 2 30 turbo green Manual Mercedes 250
+createmotorcycle adi11 2 30 turbo green Manual Mercedes 250
+removevehicle Muci 2
 // createcaravan adi11 10 200 v3 orange Automatic BMW 35 2 true
 // createrental adi1 2 0
 // createrental adi1 4 1

@@ -13,7 +13,7 @@ export class RemoveVehicle implements ICommand {
 
     private _travelDatabase: ITravelDatabase;
 
-    constructor(@inject(TYPES.data) data: ITravelDatabase,) {
+    constructor(@inject(TYPES.data) data: ITravelDatabase) {
         this._travelDatabase = data;
     }
 
@@ -32,16 +32,16 @@ export class RemoveVehicle implements ICommand {
         // tslint:disable-next-line:max-line-length
         if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Car') {
             // tslint:disable-next-line:max-line-length
-            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} with ID ${CreateCar._countCars} was removed by ${userName}.`;
+            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} was removed by ${userName}.`;
         } else if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Bus') {
             // tslint:disable-next-line:max-line-length
-            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} with ID ${CreateBus._countBuses} was removed by ${userName}.`;
+            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} was removed by ${userName}.`;
         } else if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Caravan') {
             // tslint:disable-next-line:max-line-length
-            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} with ID ${CreateCaravan._countCaravans} was removed by ${userName}.`;
+            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} was removed by ${userName}.`;
         } else if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Motorcycle') {
             // tslint:disable-next-line:max-line-length
-            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} with ID ${CreateMotorcycle._countMotorcycles} was removed by ${userName}.`;
+            return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} was removed by ${userName}.`;
         }
     }
 }

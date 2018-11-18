@@ -74,11 +74,29 @@ describe('Create car command ', () => {
             travelDB.vehicles.push(car);
 
             const command: ICommand = new CreateCar(travelDB, factory);
-            const params: string[] = ['adi11', '5', '7', 'turbo', 'green', 'HalfAutomatic', 'BMW', '100'];
+            const params: string[] = ['adi11', '5', '7', 'turbo', 'green', 'Automatic', 'BMW', '100'];
 
             // Act & Assert
             expect(() => command.execute(params))
                 .toThrowError();
+        });
+
+        it('throw when the transmission is incorrect', () => {
+            // Arrange
+            const car: ICar = new Car(5, 70, 'turbo', 'green', 'Automatic', 'BMW', 100);
+            const travelDB: ITravelDatabase = new mockTravelDatabase();
+
+            const user: IUser = new User('username', 'lastname', 20, 1, 'adi11');
+            const factory = new Models();
+
+            travelDB.users.push(user);
+            travelDB.vehicles.push(car);
+
+            const command: ICommand = new CreateCar(travelDB, factory);
+            const params: string[] = ['adi11', '5', '7', 'turbo', 'green', 'HalfAutomatic', 'BMW', '100'];
+
+            // Act & Assert
+            expect(() => command.execute(params)).toThrow('Failed to parse CreateCar command parameters.');
         });
     });
 });

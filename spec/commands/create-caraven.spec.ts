@@ -1,12 +1,13 @@
 import 'reflect-metadata';
-import { CreateBus, RemoveVehicle } from '../../src/core/commands';
+import { CreateBus, RemoveVehicle, CreateCaravan } from '../../src/core/commands';
 import { ICommand, ITravelDatabase } from '../../src/core/contracts';
 import { Models } from '../../src/core/engine/models-factory';
 import { CommandFactory } from '../../src/core/providers';
-import { Bus, IBus } from '../../src/models';
+import { ICaravan } from '../../src/models';
 import { User } from '../../src/models/users/user-model';
+import { Caravan } from '../../src/models/vehicles/caravan-model';
 
-describe('Creatingbus command ', () => {
+describe('Creating Caravan command ', () => {
     let mockTravelDatabase: jest.Mock<ITravelDatabase>;
 
     beforeEach(() => {
@@ -21,77 +22,78 @@ describe('Creatingbus command ', () => {
     describe('execute method should', () => {
         it('correctly adds the bus to the vehicles database', () => {
             // Arrange
-            const bus: IBus = new Bus(12, 100, 'engien', 'color', 'transmission', 'brand', 10);
+            const caravan: ICaravan = new Caravan(12, 120, 'engine', 'color', 'Manual', 'brand', 35, 2, true);
             const travelDB = new mockTravelDatabase();
 
             const user = new User('username', 'lastname', 20, 1, 'userche');
             const factory = new Models();
 
             travelDB.users.push(user);
-            travelDB.vehicles.push(bus);
+            travelDB.vehicles.push(caravan);
 
-            const command: ICommand = new CreateBus(travelDB, factory);
-            const params: string[] = ['userche', '12', '100', 'engien', 'color', 'Manual', 'brand', '10'];
+            const command: ICommand = new CreateCaravan(travelDB, factory);
+            const params: string[] = ['userche', '12', '120', 'engien', 'color', 'Manual', 'brand', '35', '2', 'true'];
 
             // Act
             command.execute(params);
 
             // Assert
-            expect(travelDB.vehicles).toContain(bus);
-
+            expect(travelDB.vehicles).toContain(caravan);
         });
-        
+
         it('throw when the passed username is invalid', () => {
             // Arrange
-            const bus: IBus = new Bus(12, 100, 'engien', 'color', 'transmission', 'brand', 10);
+            const caravan: ICaravan = new Caravan(12, 120, 'engine', 'color', 'Manual', 'brand', 35, 2, true);
             const travelDB = new mockTravelDatabase();
 
-            const user = new User('username', 'lastname', 20, 1, 'uwe');
+            const user = new User('username', 'lastname', 20, 1, 'userche');
             const factory = new Models();
 
             travelDB.users.push(user);
-            travelDB.vehicles.push(bus);
-            
-            const command: ICommand = new CreateBus(travelDB, factory);
-            const params: string[] = ['userche', '12', '100', 'engien', 'color', 'Manual', 'brand', '10'];
+            travelDB.vehicles.push(caravan);
+
+            const command: ICommand = new CreateCaravan(travelDB, factory);
+            const params: string[] = ['user', '12', '120', 'engien', 'color', 'Manual', 'brand', '35', '2', 'true'];
 
             // Act & Assert
             expect(() => command.execute(params))
                 .toThrow('THERE IS NO SUCH USER');
         });
+
         it('throw when the user is not an admin', () => {
             // Arrange
-            const bus: IBus = new Bus(12, 100, 'engien', 'color', 'Manual', 'brand', 10);
+            const caravan: ICaravan = new Caravan(12, 120, 'engine', 'color', 'Manual', 'brand', 35, 2, true);
             const travelDB = new mockTravelDatabase();
 
             const user = new User('username', 'lastname', 20, 0, 'userche');
             const factory = new Models();
 
             travelDB.users.push(user);
-            travelDB.vehicles.push(bus);
-            
-            const command: ICommand = new CreateBus(travelDB, factory);
-            const params: string[] = ['userche', '12', '100', 'engien', 'color', 'Manual', 'brand', '10'];
+            travelDB.vehicles.push(caravan);
+
+            const command: ICommand = new CreateCaravan(travelDB, factory);
+            const params: string[] = ['userche', '12', '120', 'engien', 'color', 'Manual', 'brand', '35', '2', 'true'];
 
             // Act & Assert
             expect(() => command.execute(params)).toThrow('THE USER DOESN"T HAVE PERMISSION TO DO THAT');
         });
+
         it('throw when the transmission is incorrect', () => {
             // Arrange
-            const bus: IBus = new Bus(12, 100, 'engien', 'color', 'transmission', 'brand', 10);
+            const caravan: ICaravan = new Caravan(12, 120, 'engine', 'color', 'Manual', 'brand', 35, 2, true);
             const travelDB = new mockTravelDatabase();
 
             const user = new User('username', 'lastname', 20, 1, 'userche');
             const factory = new Models();
 
             travelDB.users.push(user);
-            travelDB.vehicles.push(bus);
-            
-            const command: ICommand = new CreateBus(travelDB, factory);
-            const params: string[] = ['userche', '12', '100', 'engien', 'color', 'Manueeeal', 'brand', '10'];
+            travelDB.vehicles.push(caravan);
+
+            const command: ICommand = new CreateCaravan(travelDB, factory);
+            const params: string[] = ['userche', '12', '120', 'engien', 'color', 'Maerfnual', 'brand', '35', '2', 'true'];
 
             // Act & Assert
-            expect(() => command.execute(params)).toThrow('Failed to parse CreateBus command parameters.');
+            expect(() => command.execute(params)).toThrow('Failed to parse CreateCaravan command parameters.');
         });
     });
 });

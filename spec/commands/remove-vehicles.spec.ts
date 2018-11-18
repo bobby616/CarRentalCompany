@@ -20,23 +20,23 @@ describe('Remove Vehicle command ', () => {
     });
 
     describe('execute method should', () => {
-        it('correctly remove vehicle from vehicles Data Base', () => {
+        it('throw error when the user does not have the permission', () => {
             // Arrange
-            const bus: IBus = new Bus(12, 100, 'engien', 'color', 'transmission', 'brand', 10);
+            const bus: IBus = new Bus(12, 100, 'engien', 'color', 'Manual', 'brand', 10);
+            const bus2: IBus = new Bus(11, 100, 'engien', 'color', 'Manual', 'brand', 10);
             const travelDB = new mockTravelDatabase();
-            const user: IUser = new User('username', 'lastname', 20, 1, 'userche');
-            const factory = new Models();
+
+            const user: IUser = new User('username', 'lastname', 20, 0, 'userche');
 
             travelDB.users.push(user);
             travelDB.vehicles.push(bus);
+            travelDB.vehicles.push(bus2);
+
             const command: ICommand = new RemoveVehicle(travelDB);
-            const params: string[] = ['userche', '0'];
+            const params: string[] = ['userche', '1'];
 
-            // Act
-            command.execute(params);
-
-            // Assert
-            expect(() => (travelDB.vehicles)).not.toContain(bus);
+            // Act & Assert
+            expect(()=> command.execute(params)).toThrow('THE USER DOESN"T HAVE PERMISSION TO DO THAT');
 
         });
     });

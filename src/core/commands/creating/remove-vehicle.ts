@@ -27,19 +27,23 @@ export class RemoveVehicle implements ICommand {
         }
 
         // Const vehicleToRemove = this._travelDatabase.vehicles[+vehicleId];
-        this._travelDatabase.vehicles.splice(+vehicleId, 1);
+        
 
         // tslint:disable-next-line:max-line-length
         if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Car') {
+            this._travelDatabase.vehicles.splice(+vehicleId, 1);
             // tslint:disable-next-line:max-line-length
             return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} was removed by ${userName}.`;
         } else if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Bus') {
+            this._travelDatabase.vehicles.splice(+vehicleId, 1);
             // tslint:disable-next-line:max-line-length
             return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} was removed by ${userName}.`;
         } else if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Caravan') {
+            this._travelDatabase.vehicles.splice(+vehicleId, 1);
             // tslint:disable-next-line:max-line-length
             return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} was removed by ${userName}.`;
         } else if (this._travelDatabase.vehicles[+vehicleId].vehicleType === 'Motorcycle') {
+            this._travelDatabase.vehicles.splice(+vehicleId, 1);
             // tslint:disable-next-line:max-line-length
             return `Vehicle ${this._travelDatabase.vehicles[+vehicleId].vehicleType} was removed by ${userName}.`;
         }

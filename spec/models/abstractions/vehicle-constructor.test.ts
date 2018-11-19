@@ -1,9 +1,9 @@
-import { FakeClass } from "../mocks/fake-instanceOfVehicles";
-import { IVehicle, Bus, VehicleType } from "../../../src/models";
-import { Availability } from "../../../src/models/vehicles/common/availability";
-import { Car } from "../../../src/models/vehicles/car-model";
-import { Motorcycle } from "../../../src/models/vehicles/motorcycle-model";
-import { Caravan } from "../../../src/models/vehicles/caravan-model";
+import { Bus, IVehicle, VehicleType } from '../../../src/models';
+import { Car } from '../../../src/models/vehicles/car-model';
+import { Caravan } from '../../../src/models/vehicles/caravan-model';
+import { Availability } from '../../../src/models/vehicles/common/availability';
+import { Motorcycle } from '../../../src/models/vehicles/motorcycle-model';
+import { FakeClass } from '../mocks/fake-instanceOfVehicles';
 
 describe('Vehicle', () => {
     describe('Constructor should', () => {
@@ -47,7 +47,7 @@ describe('Vehicle', () => {
             expect(info).toContain(`Availability: ${Availability.Available}`);
             expect(info).toContain(`Length of the bus: 11`);
 
-        })
+        });
     });
 
     it('return a string that contains correct values for Car', () => {
@@ -101,4 +101,3 @@ describe('Vehicle', () => {
     });
 
 });
-

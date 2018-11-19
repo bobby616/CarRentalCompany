@@ -1,13 +1,11 @@
+// tslint:disable-next-line:no-import-side-effect
 import 'reflect-metadata';
-import { CreateBus, RemoveVehicle } from '../../src/core/commands';
-import { ICommand, ITravelDatabase } from '../../src/core/contracts';
+import { ICommand, IModels, ITravelDatabase } from '../../src/core/contracts';
 import { Models } from '../../src/core/engine/models-factory';
-import { CommandFactory } from '../../src/core/providers';
 import { ICar } from '../../src/models';
 import { IUser } from '../../src/models/contracts/user';
 import { User } from '../../src/models/users/user-model';
 import { CreateCar } from './../../src/core/commands/creating/create-car-command';
-import { ICommandFactory } from './../../src/core/contracts/command-factory';
 import { Car } from './../../src/models/vehicles/car-model';
 
 describe('Create car command ', () => {
@@ -26,10 +24,10 @@ describe('Create car command ', () => {
         it('correctly adds the car to the vehicles database', () => {
             // Arrange
             const car: ICar = new Car(5, 70, 'turbo', 'green', 'Automatic', 'BMW', 100);
-            const travelDB = new mockTravelDatabase();
+            const travelDB: ITravelDatabase = new mockTravelDatabase();
 
-            const user = new User('username', 'lastname', 20, 1, 'adi11');
-            const factory = new Models();
+            const user: IUser = new User('username', 'lastname', 20, 1, 'adi11');
+            const factory: IModels = new Models();
 
             travelDB.users.push(user);
             travelDB.vehicles.push(car);
@@ -49,7 +47,7 @@ describe('Create car command ', () => {
             const travelDB: ITravelDatabase = new mockTravelDatabase();
 
             const user: IUser = new User('username', 'lastname', 20, 1, 'adi11');
-            const factory = new Models();
+            const factory: IModels = new Models();
 
             travelDB.users.push(user);
             travelDB.vehicles.push(car);
@@ -68,7 +66,7 @@ describe('Create car command ', () => {
             const travelDB: ITravelDatabase = new mockTravelDatabase();
 
             const user: IUser = new User('username', 'lastname', 20, 0, 'adi11');
-            const factory = new Models();
+            const factory: IModels = new Models();
 
             travelDB.users.push(user);
             travelDB.vehicles.push(car);
@@ -87,7 +85,7 @@ describe('Create car command ', () => {
             const travelDB: ITravelDatabase = new mockTravelDatabase();
 
             const user: IUser = new User('username', 'lastname', 20, 1, 'adi11');
-            const factory = new Models();
+            const factory: IModels = new Models();
 
             travelDB.users.push(user);
             travelDB.vehicles.push(car);

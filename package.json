@@ -37,7 +37,7 @@
   "scripts": {
     "start": "webpack-dev-server --inline --progress --colors --open",
     "start-ts": "ts-node --project tsconfig.json ./src/main.ts",
-    "test": "jest",
+    "test": "jest --verbose --colors",
     "karma": "karma start"
   },
   "author": "TSTEAM5",
